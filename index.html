@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia de Genética — Leis de Mendel</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --verde: #1a6b3a;
+    --verde-claro: #2d9657;
+    --amarelo: #f5c842;
+    --bg: #f7f4ee;
+    --papel: #fffef9;
+    --tinta: #1c1c1c;
+    --cinza: #6b6b6b;
+    --borda: #d4c9a8;
+    --destaque: #e8f5ee;
+    --vermelho: #c0392b;
+    --azul: #1a4f8b;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--bg);
+    color: var(--tinta);
+    line-height: 1.7;
+  }
+  header {
+    background: var(--verde);
+    color: white;
+    padding: 3rem 2rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,.03) 20px, rgba(255,255,255,.03) 40px);
+  }
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 900;
+    letter-spacing: -1px;
+    position: relative;
+    text-shadow: 0 2px 12px rgba(0,0,0,.3);
+  }
+  header p { margin-top: .7rem; font-size: 1.05rem; opacity: .85; position: relative; }
+  nav {
+    background: var(--papel);
+    border-bottom: 2px solid var(--borda);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+  }
+  nav button {
+    flex: 1 1 auto;
+    min-width: 130px;
+    padding: .9rem 1.2rem;
+    font-family: 'Source Serif 4', serif;
+    font-size: .88rem;
+    font-weight: 600;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    cursor: pointer;
+    color: var(--cinza);
+    transition: all .2s;
+    letter-spacing: .3px;
+  }
+  nav button:hover { color: var(--verde); background: var(--destaque); }
+  nav button.ativo { color: var(--verde); border-bottom-color: var(--verde); background: var(--destaque); }
+  .secao { display: none; max-width: 860px; margin: 0 auto; padding: 2.5rem 1.5rem 4rem; }
+  .secao.ativa { display: block; animation: fadeIn .3s ease; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  h2 { font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--verde); margin-bottom: 1.5rem; padding-bottom: .6rem; border-bottom: 2px solid var(--borda); }
+  h3 { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--tinta); margin: 2rem 0 .8rem; }
+  p { margin-bottom: 1rem; }
+  .card { background: var(--papel); border: 1px solid var(--borda); border-radius: 10px; padding: 1.5rem 1.8rem; margin-bottom: 1.5rem; box-shadow: 0 2px 8px rgba(0,0,0,.04); }
+  .card-verde { border-left: 5px solid var(--verde); }
+  .card-amarelo { border-left: 5px solid var(--amarelo); background: #fffdf0; }
+  .card-azul { border-left: 5px solid var(--azul); }
+  .card-vermelho { border-left: 5px solid var(--vermelho); background: #fdf5f5; }
+  .badge { display: inline-block; padding: .2rem .7rem; border-radius: 20px; font-size: .78rem; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; margin-bottom: .5rem; }
+  .badge-verde { background: var(--verde); color: white; }
+  .badge-amarelo { background: var(--amarelo); color: #5a4000; }
+  .badge-azul { background: var(--azul); color: white; }
+  .badge-vermelho { background: var(--vermelho); color: white; }
+  .vocab-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; margin-top: 1rem; }
+  .vocab-item { background: var(--papel); border: 1px solid var(--borda); border-radius: 8px; padding: 1rem 1.2rem; cursor: pointer; transition: all .2s; position: relative; }
+  .vocab-item:hover { border-color: var(--verde); box-shadow: 0 3px 12px rgba(26,107,58,.12); transform: translateY(-2px); }
+  .vocab-item .termo { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: var(--verde); margin-bottom: .3rem; }
+  .vocab-item .def { font-size: .9rem; color: var(--cinza); display: none; }
+  .vocab-item.aberto .def { display: block; color: var(--tinta); margin-top: .4rem; }
+  .vocab-item .hint { font-size: .75rem; color: var(--borda); position: absolute; bottom: .5rem; right: .8rem; }
+  .vocab-item.aberto .hint { display: none; }
+  .punnet { border-collapse: collapse; margin: 1.2rem auto; font-family: 'Source Serif 4', serif; }
+  .punnet td, .punnet th { width: 80px; height: 60px; text-align: center; border: 2px solid var(--borda); font-size: 1.1rem; font-weight: 600; }
+  .punnet th { background: var(--verde); color: white; font-size: 1.2rem; }
+  .punnet td { background: var(--papel); }
+  .punnet td.dom { background: #d4edda; }
+  .punnet td.rec { background: #f8d7da; }
+  .questao { background: var(--papel); border: 1px solid var(--borda); border-radius: 10px; padding: 1.5rem 1.8rem; margin-bottom: 1.8rem; }
+  .questao .num { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 900; color: var(--borda); float: left; margin-right: .8rem; line-height: 1; }
+  .questao .enunciado { font-size: .97rem; margin-bottom: 1rem; }
+  .questao .dica-btn { background: var(--verde); color: white; border: none; padding: .45rem 1.1rem; border-radius: 6px; cursor: pointer; font-family: 'Source Serif 4', serif; font-size: .88rem; font-weight: 600; margin-right: .5rem; transition: background .2s; }
+  .questao .dica-btn:hover { background: var(--verde-claro); }
+  .questao .gabarito-btn { background: transparent; color: var(--verde); border: 1.5px solid var(--verde); padding: .45rem 1.1rem; border-radius: 6px; cursor: pointer; font-family: 'Source Serif 4', serif; font-size: .88rem; font-weight: 600; transition: all .2s; }
+  .questao .gabarito-btn:hover { background: var(--verde); color: white; }
+  .questao .dica-box, .questao .gabarito-box { display: none; margin-top: 1rem; padding: 1rem 1.2rem; border-radius: 8px; font-size: .93rem; }
+  .questao .dica-box { background: #fffbe6; border-left: 4px solid var(--amarelo); }
+  .questao .gabarito-box { background: var(--destaque); border-left: 4px solid var(--verde); }
+  .questao .dica-box.visivel, .questao .gabarito-box.visivel { display: block; animation: fadeIn .2s; }
+  .questao strong { color: var(--verde); }
+  .timeline { position: relative; padding-left: 2rem; }
+  .timeline::before { content: ''; position: absolute; left: .6rem; top: 0; bottom: 0; width: 2px; background: var(--borda); }
+  .tl-item { position: relative; margin-bottom: 1.5rem; }
+  .tl-item::before { content: ''; position: absolute; left: -1.7rem; top: .35rem; width: 14px; height: 14px; background: var(--verde); border-radius: 50%; border: 3px solid var(--papel); box-shadow: 0 0 0 2px var(--verde); }
+  .tabela-ratio { width: 100%; border-collapse: collapse; margin: 1rem 0; font-size: .92rem; }
+  .tabela-ratio th { background: var(--verde); color: white; padding: .6rem .9rem; text-align: left; font-weight: 600; }
+  .tabela-ratio td { padding: .55rem .9rem; border-bottom: 1px solid var(--borda); }
+  .tabela-ratio tr:nth-child(even) td { background: var(--destaque); }
+  .formula { background: #f0f7f3; border: 1.5px dashed var(--verde); border-radius: 8px; padding: 1rem 1.4rem; font-family: 'Playfair Display', serif; font-size: 1.1rem; color: var(--verde); text-align: center; margin: 1rem 0; }
+  footer { text-align: center; padding: 2rem; color: var(--cinza); font-size: .85rem; border-top: 1px solid var(--borda); }
+  @media (max-width: 600px) {
+    nav button { font-size: .78rem; padding: .7rem .8rem; min-width: 90px; }
+    .punnet td, .punnet th { width: 55px; height: 45px; font-size: .95rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🧬 Genética — Leis de Mendel</h1>
+  <p>Guia completo para estudar sua lista de exercícios</p>
+</header>
+
+<nav>
+  <button class="ativo" onclick="mostrar('vocabulario', this)">📖 Vocabulário</button>
+  <button onclick="mostrar('1lei', this)">1ª Lei de Mendel</button>
+  <button onclick="mostrar('2lei', this)">2ª Lei de Mendel</button>
+  <button onclick="mostrar('especial', this)">Tópicos Extras</button>
+  <button onclick="mostrar('exercicios', this)">📝 Exercícios</button>
+</nav>
+
+<section id="vocabulario" class="secao ativa">
+  <h2>📖 Vocabulário Essencial de Genética</h2>
+  <p style="color:var(--cinza); margin-bottom:1.5rem;">Clique em cada termo para ver a definição. Sua lista pede que você estude esse vocabulário!</p>
+  <div class="vocab-grid">
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Gene</div><div class="def">Unidade básica da hereditariedade. Segmento de DNA que contém informação para uma característica. Ocupa uma posição fixa (locus) em um cromossomo.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Alelo</div><div class="def">Formas alternativas de um mesmo gene, que ocupam o mesmo locus em cromossomos homólogos. Ex: gene para cor dos olhos pode ter alelo para castanho (C) ou azul (c).</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Dominante</div><div class="def">Alelo que se expressa mesmo em apenas uma cópia (heterozigoto). Representado por letra MAIÚSCULA. Ex: A, B, C. Mascara o efeito do alelo recessivo.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Recessivo</div><div class="def">Alelo que só se expressa quando presente em duas cópias (homozigoto recessivo). Representado por letra minúscula. Ex: a, b, c. É "mascarado" pelo dominante.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Genótipo</div><div class="def">Constituição genética de um indivíduo — os alelos que ele possui. Ex: AA, Aa, aa. Não é visível diretamente; é o "código" interno do organismo.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Fenótipo</div><div class="def">Característica observável resultante da expressão do genótipo + ambiente. Ex: cor dos olhos, altura, tipo sanguíneo. Dois indivíduos com genótipos diferentes podem ter o mesmo fenótipo.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Homozigoto</div><div class="def">Indivíduo com dois alelos iguais para um gene: AA (homozigoto dominante) ou aa (homozigoto recessivo). Produz apenas um tipo de gameta para aquele gene.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Heterozigoto</div><div class="def">Indivíduo com dois alelos diferentes para um gene: Aa. Também chamado de "híbrido". Produz dois tipos de gametas (A ou a). O fenótipo é o do alelo dominante.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Gameta</div><div class="def">Célula reprodutora (óvulo ou espermatozoide) com metade do número de cromossomos (haploide, n). Cada gameta carrega apenas um alelo de cada gene.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Locus (pl. loci)</div><div class="def">Posição fixa e específica que um gene ocupa em um cromossomo. Alelos ocupam o mesmo locus em cromossomos homólogos.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Autossômico</div><div class="def">Gene localizado nos autossomos (cromossomos 1 a 22, não sexuais). A herança autossômica afeta machos e fêmeas com igual frequência.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Ligado ao X</div><div class="def">Gene localizado no cromossomo X (sexual). Homens (XY) expressam o alelo recessivo ligado ao X porque têm apenas um X — são hemizigóticos. Por isso, doenças como daltonismo e hemofilia são mais comuns em homens.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Portador / Portadora</div><div class="def">Indivíduo heterozigoto para uma doença recessiva (Aa). Não apresenta o fenótipo da doença, mas pode transmitir o alelo recessivo aos filhos. Muito importante em doenças ligadas ao X.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Heredograma</div><div class="def">Diagrama (árvore genealógica) que representa a transmissão de uma característica hereditária em uma família. Quadrados = homens; círculos = mulheres; símbolo preenchido = afetado.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Segregação independente</div><div class="def">Princípio da 2ª Lei de Mendel: os alelos de genes em cromossomos diferentes se distribuem aos gametas de forma independente uns dos outros. Gera recombinações novas.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Codominância</div><div class="def">Quando dois alelos se expressam igualmente no heterozigoto, sem dominância de um sobre o outro. Exemplo clássico: tipo sanguíneo AB, onde os alelos IA e IB são codominantes.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Efeito Aditivo</div><div class="def">Tipo de herança em que cada alelo dominante adiciona uma quantidade ao fenótipo. Na sua lista: cada alelo A ou B adiciona 0,15m à altura da planta.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Tipos Sanguíneos ABO</div><div class="def">Sistema controlado por 3 alelos: IA (codominante), IB (codominante) e i (recessivo). Genótipos: A = IAIA ou IAi; B = IBIB ou IBi; AB = IAIB; O = ii.</div><span class="hint">toque para ver ▸</span></div>
+  </div>
+</section>
+
+<section id="1lei" class="secao">
+  <h2>1ª Lei de Mendel — Segregação dos Fatores</h2>
+  <div class="card card-verde">
+    <span class="badge badge-verde">Enunciado Oficial</span>
+    <p style="font-size:1.05rem; margin-top:.5rem;">"<em>Cada característica é determinada por um par de fatores que se separam durante a formação dos gametas, indo um fator para cada gameta.</em>"</p>
+  </div>
+  <h3>O que isso significa na prática?</h3>
+  <div class="timeline">
+    <div class="tl-item"><strong>Todo ser diplóide tem 2 alelos</strong> para cada gene (um veio do pai, outro da mãe).</div>
+    <div class="tl-item"><strong>Na formação dos gametas</strong> (meiose), esse par se separa: cada gameta recebe apenas 1 alelo.</div>
+    <div class="tl-item"><strong>Na fecundação</strong>, os gametas se unem e o par é restaurado no zigoto.</div>
+    <div class="tl-item"><strong>A proporção clássica</strong> de um cruzamento Aa × Aa é 3 dominante : 1 recessivo no fenótipo, e 1 AA : 2 Aa : 1 aa no genótipo.</div>
+  </div>
+  <h3>Como montar o Quadro de Punnett</h3>
+  <div class="card card-amarelo">
+    <span class="badge badge-amarelo">Passo a Passo</span>
+    <ol style="margin-top:.7rem; padding-left:1.5rem; line-height:2;">
+      <li>Identifique os genótipos dos pais</li>
+      <li>Determine os gametas possíveis de cada pai</li>
+      <li>Monte o quadro: gametas do pai na coluna, da mãe na linha</li>
+      <li>Combine cada gameta: a combinação é o genótipo do filho</li>
+      <li>Conte os fenótipos e calcule as proporções</li>
+    </ol>
+  </div>
+  <h3>Exemplo: Aa × Aa (heterozigotos)</h3>
+  <table class="punnet">
+    <tr><th></th><th>A</th><th>a</th></tr>
+    <tr><th>A</th><td class="dom">AA</td><td class="dom">Aa</td></tr>
+    <tr><th>a</th><td class="dom">Aa</td><td class="rec">aa</td></tr>
+  </table>
+  <p style="text-align:center; font-size:.9rem; color:var(--cinza);">Verde = fenótipo dominante (3/4) | Rosa = fenótipo recessivo (1/4)</p>
+  <table class="tabela-ratio" style="margin-top:1.5rem;">
+    <tr><th>Genótipo</th><th>Proporção</th><th>Fenótipo</th></tr>
+    <tr><td>AA</td><td>1/4 = 25%</td><td>Dominante (homozigoto)</td></tr>
+    <tr><td>Aa</td><td>2/4 = 50%</td><td>Dominante (heterozigoto)</td></tr>
+    <tr><td>aa</td><td>1/4 = 25%</td><td>Recessivo</td></tr>
+  </table>
+  <h3>Cruzamento de Teste (Testcross)</h3>
+  <p>Para saber se um indivíduo de fenótipo dominante é AA ou Aa, cruza-se ele com um homozigoto recessivo (aa):</p>
+  <div class="card card-azul">
+    <p>• Se o resultado for <strong>100% dominante</strong> → pai era <strong>AA</strong></p>
+    <p>• Se o resultado for <strong>50% dominante e 50% recessivo</strong> → pai era <strong>Aa</strong></p>
+  </div>
+  <h3>Fórmula: Número de Gametas Diferentes</h3>
+  <div class="formula">
+    Número de gametas diferentes = 2ⁿ<br>
+    <span style="font-family:'Source Serif 4'; font-size:.85rem;">(n = número de pares de genes em heterozigose)</span>
+  </div>
+  <p>Exemplo: AaBbCc → 3 pares em heterozigose → 2³ = <strong>8 gametas diferentes</strong></p>
+  <p>Exemplo da lista: AabbCcDd → pares em heterozigose: Aa, Cc, Dd = 3 → 2³ = <strong>8 gametas</strong></p>
+</section>
+
+<section id="2lei" class="secao">
+  <h2>2ª Lei de Mendel — Segregação Independente</h2>
+  <div class="card card-verde">
+    <span class="badge badge-verde">Enunciado Oficial</span>
+    <p style="font-size:1.05rem; margin-top:.5rem;">"<em>Os fatores para duas ou mais características se segregam de maneira independente, distribuindo-se aos gametas e recombinando-se ao acaso.</em>"</p>
+  </div>
+  <div class="card card-amarelo">
+    <span class="badge badge-amarelo">Condição importante</span>
+    <p>Essa lei só vale para genes em <strong>cromossomos diferentes</strong> (ou muito distantes no mesmo cromossomo). Genes próximos no mesmo cromossomo tendem a ser herdados juntos (ligação gênica).</p>
+  </div>
+  <h3>Gametas de um dihíbrido (AaBb)</h3>
+  <p>Um indivíduo AaBb produz <strong>4 tipos de gametas</strong> em proporções iguais:</p>
+  <div style="display:flex; gap:1rem; flex-wrap:wrap; margin:1rem 0;">
+    <div class="card" style="flex:1; min-width:100px; text-align:center; padding:1rem;"><strong style="font-size:1.3rem;">AB</strong><br><span style="font-size:.8rem;">25%</span></div>
+    <div class="card" style="flex:1; min-width:100px; text-align:center; padding:1rem;"><strong style="font-size:1.3rem;">Ab</strong><br><span style="font-size:.8rem;">25%</span></div>
+    <div class="card" style="flex:1; min-width:100px; text-align:center; padding:1rem;"><strong style="font-size:1.3rem;">aB</strong><br><span style="font-size:.8rem;">25%</span></div>
+    <div class="card" style="flex:1; min-width:100px; text-align:center; padding:1rem;"><strong style="font-size:1.3rem;">ab</strong><br><span style="font-size:.8rem;">25%</span></div>
+  </div>
+  <h3>Cruzamento AaBb × AaBb — Resultado 9:3:3:1</h3>
+  <table class="tabela-ratio">
+    <tr><th>Fenótipo</th><th>Proporção</th><th>Exemplo</th></tr>
+    <tr><td>A_B_ (dominante/dominante)</td><td>9/16</td><td>Alta e amarela</td></tr>
+    <tr><td>A_bb (dominante/recessivo)</td><td>3/16</td><td>Alta e verde</td></tr>
+    <tr><td>aaB_ (recessivo/dominante)</td><td>3/16</td><td>Baixa e amarela</td></tr>
+    <tr><td>aabb (recessivo/recessivo)</td><td>1/16</td><td>Baixa e verde</td></tr>
+  </table>
+  <h3>Dica: Multiplique as probabilidades!</h3>
+  <div class="card card-azul">
+    <p>Quando dois genes segregam independentemente, você pode calcular a probabilidade de cada combinação <strong>multiplicando</strong> as probabilidades de cada gene separado.</p>
+    <br>
+    <p>Exemplo (questão 8 da lista): mulher CcMm × homem ccmm</p>
+    <p>P(cc) = 1/2 × P(Mm) = 1/2 → P(olhos claros e visão normal) = 1/2 × 1/2 = <strong>1/4 = 25%</strong></p>
+  </div>
+  <h3>Fórmulas Úteis para a 2ª Lei</h3>
+  <div class="formula">
+    Tipos de gametas = 2ⁿ &nbsp;|&nbsp; Tipos de genótipos = 3ⁿ &nbsp;|&nbsp; Tipos de fenótipos = 2ⁿ
+    <br><span style="font-family:'Source Serif 4'; font-size:.82rem;">(n = número de pares em heterozigose | válido para dominância completa)</span>
+  </div>
+</section>
+
+<section id="especial" class="secao">
+  <h2>Tópicos Extras da sua Lista</h2>
+  <h3>🩸 Sistema ABO e Fator Rh</h3>
+  <div class="card card-verde">
+    <table class="tabela-ratio">
+      <tr><th>Tipo Sanguíneo</th><th>Genótipos possíveis</th><th>Antígeno</th></tr>
+      <tr><td>A</td><td>IAIA ou IAi</td><td>Antígeno A</td></tr>
+      <tr><td>B</td><td>IBIB ou IBi</td><td>Antígeno B</td></tr>
+      <tr><td>AB</td><td>IAIB</td><td>A e B</td></tr>
+      <tr><td>O</td><td>ii</td><td>Nenhum</td></tr>
+    </table>
+  </div>
+  <p><strong>Fator Rh:</strong> Rh+ é dominante (R_), Rh- é recessivo (rr). Uma mãe Rh- com filho Rh+ pode ter problemas na 2ª gravidez (eritroblastose fetal).</p>
+  <h3>🔗 Herança Ligada ao Cromossomo X</h3>
+  <div class="card card-vermelho">
+    <p><strong>Homens</strong> têm apenas um X (XY) → se tiverem o alelo recessivo no X, manifestam a doença.<br>
+    <strong>Mulheres</strong> têm dois X (XX) → precisam de dois alelos recessivos para manifestar; com um só são portadoras.</p>
+  </div>
+  <table class="tabela-ratio" style="margin-top:1rem;">
+    <tr><th>Genótipo feminino</th><th>Fenótipo</th></tr>
+    <tr><td>XHXH</td><td>Normal (homozigota)</td></tr>
+    <tr><td>XHXh</td><td>Normal portadora</td></tr>
+    <tr><td>XhXh</td><td>Afetada</td></tr>
+  </table>
+  <table class="tabela-ratio">
+    <tr><th>Genótipo masculino</th><th>Fenótipo</th></tr>
+    <tr><td>XHY</td><td>Normal</td></tr>
+    <tr><td>XhY</td><td>Afetado (daltônico / hemofílico)</td></tr>
+  </table>
+  <h3>📊 Herança Quantitativa (Efeito Aditivo)</h3>
+  <p>Quando múltiplos genes controlam uma característica com efeito aditivo (questão 2 da lista):</p>
+  <div class="card card-azul">
+    <p>Cada alelo dominante (A ou B) <strong>adiciona</strong> um valor fixo ao fenótipo.</p>
+    <p style="margin-top:.5rem;">Planta com 0 alelos dominantes (aabb) = altura mínima (1,00 m)</p>
+    <p>Cada alelo dominante adiciona 0,15 m. Logo:</p>
+    <p>• aabb = 1,00 m | • 1 alelo dom = 1,15 m | • 2 alelos = 1,30 m | • 3 = 1,45 m | • 4 (AABB) = 1,60 m</p>
+  </div>
+  <h3>🔴 Talassemia — Codominância</h3>
+  <div class="card card-amarelo">
+    <p>MM = talassemia maior (grave) — morre antes de reproduzir</p>
+    <p>MN = talassemia menor (branda, portador)</p>
+    <p>NN = normal</p>
+    <p style="margin-top:.5rem;">Cruzamento MN × MN → 1 MM : 2 MN : 1 NN. Como MM não sobrevive à reprodução, entre os adultos: <strong>2/3 são MN e 1/3 são NN</strong>. Portanto, 2/3 dos adultos são anêmicos.</p>
+  </div>
+</section>
+
+<section id="exercicios" class="secao">
+  <h2>📝 Exercícios da Lista — Com Dicas e Gabarito</h2>
+  <p style="color:var(--cinza); margin-bottom:1.5rem;">Tente resolver cada questão antes de ver a dica ou o gabarito!</p>
+
+  <div class="questao">
+    <div class="num">1</div>
+    <div class="enunciado">Miopia e ser canhoto são genes <u>recessivos</u> autossômicos. Um homem normal e destro (pai míope e canhoto) casa com mulher normal e destra, heterozigota para os dois.<br><strong>a)</strong> Genótipos e fenótipos dos filhos? <strong>b)</strong> Probabilidade de filho com fenótipo igual ao pai?</div>
+    <button class="dica-btn" onclick="mostrarBox(this, 'dica')">💡 Dica</button>
+    <button class="gabarito-btn" onclick="mostrarBox(this, 'gabarito')">✓ Gabarito</button>
+    <div class="dica-box">O pai tem visão normal mas seu pai tinha miopia → o pai é heterozigoto para miopia (Mm). Para a mão, o avô era canhoto (cc) mas o pai é destro → o pai é Cc. Portanto o pai é <strong>MmCc</strong>. A mãe é heterozigota para os dois: <strong>MmCc</strong> também. Use a 2ª Lei!</div>
+    <div class="gabarito-box"><strong>Genótipos dos pais:</strong> Pai = MmCc | Mãe = MmCc<br><strong>Filhos (proporção 9:3:3:1):</strong><br>• 9/16: visão normal e destros (M_C_)<br>• 3/16: visão normal e canhotos (M_cc)<br>• 3/16: míopes e destros (mmC_)<br>• 1/16: míopes e canhotos (mmcc)<br><strong>Fenótipo do pai</strong> = visão normal e destro = <strong>9/16 ≈ 56,25%</strong></div>
+  </div>
+
+  <div class="questao">
+    <div class="num">4</div>
+    <div class="enunciado">Albinismo é recessivo (aa). Rapaz albino casa com moça de pigmentação normal, cuja mãe é albina. Qual a probabilidade do filho ser albino?</div>
+    <button class="dica-btn" onclick="mostrarBox(this, 'dica')">💡 Dica</button>
+    <button class="gabarito-btn" onclick="mostrarBox(this, 'gabarito')">✓ Gabarito</button>
+    <div class="dica-box">O rapaz albino é <strong>aa</strong>. A moça tem pigmentação normal mas sua mãe é albina (aa). Para a mãe ser aa e a moça ser normal, a moça deve ter recebido um 'a' da mãe e um 'A' de algum pai → moça é <strong>Aa</strong>. Faça o cruzamento!</div>
+    <div class="gabarito-box">Cruzamento: <strong>aa × Aa</strong><br>Filhos: 1/2 Aa (normal) + 1/2 aa (albino)<br><strong>Probabilidade = 50%</strong></div>
+  </div>
+
+  <div class="questao">
+    <div class="num">5</div>
+    <div class="enunciado">Pelos curtos (C) é dominante sobre longos (c). Coelhos Cc × Cc → 480 filhotes, 360 com pelos curtos. Quantos dos pelos curtos são heterozigotos?</div>
+    <button class="dica-btn" onclick="mostrarBox(this, 'dica')">💡 Dica</button>
+    <button class="gabarito-btn" onclick="mostrarBox(this, 'gabarito')">✓ Gabarito</button>
+    <div class="dica-box">Em Cc × Cc: 1/4 CC, 2/4 Cc, 1/4 cc. Dos 360 com pelos curtos (3/4 do total), 1/3 é CC e 2/3 é Cc. Quantos são 2/3 de 360?</div>
+    <div class="gabarito-box">360 com pelos curtos → 2/3 são Cc<br>360 × 2/3 = <strong>240 heterozigotos (Cc)</strong></div>
+  </div>
+
+  <div class="questao">
+    <div class="num">6</div>
+    <div class="enunciado">Quantos gametas diferentes produz um indivíduo AabbCcDd?</div>
+    <button class="dica-btn" onclick="mostrarBox(this, 'dica')">💡 Dica</button>
+    <button class="gabarito-btn" onclick="mostrarBox(this, 'gabarito')">✓ Gabarito</button>
+    <div class="dica-box">Use a fórmula 2ⁿ, onde n = número de pares em heterozigose. Quais pares são heterozigotos em AabbCcDd?</div>
+    <div class="gabarito-box">Heterozigotos: Aa, Cc, Dd → n = 3<br>bb = homozigoto, não contribui para variação<br>2³ = <strong>8 gametas diferentes</strong></div>
+  </div>
+
+  <div class="questao">
+    <div class="num">7</div>
+    <div class="enunciado">De acordo com a 2ª Lei, indivíduo BBCc produz quais gametas?</div>
+    <button class="dica-btn" onclick="mostrarBox(this, 'dica')">💡 Dica</button>
+    <button class="gabarito-btn" onclick="mostrarBox(this, 'gabarito')">✓ Gabarito</button>
+    <div class="dica-box">BB é homozigoto — sempre passa B. Cc é heterozigoto — passa C ou c. Combine!</div>
+    <div class="gabarito-box">BB → só produz gametas com B<br>Cc → produz gametas com C ou c<br>Resultado: <strong>BC e Bc</strong> (50% cada)</div>
+  </div>
+
+  <div class="questao">
+    <div class="num">8</div>
+    <div class="enunciado">Mulher CcMm × homem ccmm. Qual a probabilidade de nascer criança de olhos claros (cc) e visão normal (M_)?</div>
+    <button class="dica-btn" onclick="mostrarBox(this, 'dica')">💡 Dica</button>
+    <button class="gabarito-btn" onclick="mostrarBox(this, 'gabarito')">✓ Gabarito</button>
+    <div class="dica-box">Calcule separado: P(cc) de Cc × cc = ? e P(M_) de Mm × mm = ? Depois multiplique os resultados.</div>
+    <div class="gabarito-box">Cc × cc → 1/2 Cc e 1/2 cc → P(cc) = <strong>1/2</strong><br>Mm × mm → 1/2 Mm e 1/2 mm → P(Mm) = <strong>1/2</strong><br>P(cc e Mm) = 1/2 × 1/2 = <strong>1/4 = 25%</strong></div>
+  </div>
+
+  <div class="questao">
+    <div class="num">11</div>
+    <div class="enunciado">Talassemia: MM = grave (morre antes da reprodução), MN = branda, NN = normal. Cruzamento MN × MN. Qual fração dos adultos descendentes é anêmica?</div>
+    <button class="dica-btn" onclick="mostrarBox(this, 'dica')">💡 Dica</button>
+    <button class="gabarito-btn" onclick="mostrarBox(this, 'gabarito')">✓ Gabarito</button>
+    <div class="dica-box">Faça o cruzamento MN × MN. Lembre-se: MM morre antes de ter filhos. Calcule a proporção só entre os que sobrevivem à fase adulta.</div>
+    <div class="gabarito-box">MN × MN → 1/4 MM : 2/4 MN : 1/4 NN<br>MM não chega à idade adulta → elimine os MM<br>Restam: 2 MN e 1 NN = 3 indivíduos<br>Anêmicos (MN): <strong>2/3 dos adultos</strong></div>
+  </div>
+
+  <div class="questao">
+    <div class="num">15</div>
+    <div class="enunciado">Hemofilia é recessiva ligada ao X. Homem normal × mulher portadora. Qual a probabilidade de uma filha hemofílica?</div>
+    <button class="dica-btn" onclick="mostrarBox(this, 'dica')">💡 Dica</button>
+    <button class="gabarito-btn" onclick="mostrarBox(this, 'gabarito')">✓ Gabarito</button>
+    <div class="dica-box">Homem normal = XHY. Mulher portadora = XHXh. Faça o cruzamento. Filha hemofílica precisa ser XhXh — precisa de um Xh do pai e um Xh da mãe. O pai normal pode passar Xh?</div>
+    <div class="gabarito-box">XHY × XHXh → filhos: XHXh, XHXH, XHY, XhY<br>Filhas: XHXH (normal) e XHXh (portadora) — nenhuma hemofílica<br>O pai não tem o alelo h para passar às filhas.<br><strong>Resposta: d) 0% de chance</strong></div>
+  </div>
+
+  <div class="questao">
+    <div class="num">16</div>
+    <div class="enunciado">Daltonismo recessivo ligado ao X. Homem daltônico × mulher normal homozigota. Probabilidade de filho masculino daltônico?</div>
+    <button class="dica-btn" onclick="mostrarBox(this, 'dica')">💡 Dica</button>
+    <button class="gabarito-btn" onclick="mostrarBox(this, 'gabarito')">✓ Gabarito</button>
+    <div class="dica-box">Homem daltônico = XdY. Mulher normal homozigota = XDXD. Os filhos homens recebem o Y do pai e um X da mãe. Que X a mãe passa?</div>
+    <div class="gabarito-box">XdY × XDXD → filhas: XDXd (todas portadoras, normais) | filhos: XDY (todos normais)<br>A mãe só tem XD — todos os filhos homens recebem XD → são normais.<br><strong>Resposta: d) Não há chance</strong></div>
+  </div>
+</section>
+
+<footer>
+  <p>🧬 Guia de Estudos — Genética | Leis de Mendel</p>
+  <p style="margin-top:.3rem;">Bons estudos! Revise o vocabulário primeiro, depois as leis, depois resolva os exercícios.</p>
+</footer>
+
+<script>
+function mostrar(id, btn) {
+  document.querySelectorAll('.secao').forEach(s => s.classList.remove('ativa'));
+  document.querySelectorAll('nav button').forEach(b => b.classList.remove('ativo'));
+  document.getElementById(id).classList.add('ativa');
+  btn.classList.add('ativo');
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function toggle(el) { el.classList.toggle('aberto'); }
+function mostrarBox(btn, tipo) {
+  const questao = btn.closest('.questao');
+  const box = questao.querySelector('.' + tipo + '-box');
+  box.classList.toggle('visivel');
+  if (box.classList.contains('visivel')) {
+    btn.textContent = tipo === 'dica' ? '💡 Ocultar' : '✓ Ocultar';
+  } else {
+    btn.textContent = tipo === 'dica' ? '💡 Dica' : '✓ Gabarito';
+  }
+}
+</script>
+</body>
+</html>
