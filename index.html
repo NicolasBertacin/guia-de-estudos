@@ -1224,63 +1224,107 @@
 
 <!-- ==================== 1ª LEI ==================== -->
 <section id="1lei" class="secao">
-  <h2>1ª Lei de Mendel — Segregação dos Fatores</h2>
-  <div class="card card-verde"><span class="badge badge-verde">Enunciado Oficial</span>
-    <p style="font-size:1.05rem; margin-top:.5rem;"><em>"Cada característica é determinada por um par de fatores que se separam durante a formação dos gametas, indo um fator para cada gameta."</em></p>
+  <h2>1ª Lei de Mendel — Lei da Segregação dos Fatores</h2>
+  <div class="card card-verde">
+    <p>Mendel mostrou que as características hereditárias são transmitidas por fatores que hoje chamamos de <strong>genes</strong> ou <strong>alelos</strong>. A 1ª lei explica a herança de <strong>uma característica por vez</strong>.</p>
   </div>
-  <h3>O que isso significa na prática?</h3>
-  <div class="timeline">
-    <div class="tl-item"><strong>Todo ser diplóide tem 2 alelos</strong> para cada gene (um do pai, outro da mãe).</div>
-    <div class="tl-item"><strong>Na formação dos gametas</strong> (meiose), o par se separa: cada gameta recebe apenas 1 alelo.</div>
-    <div class="tl-item"><strong>Na fecundação</strong>, os gametas se unem e o par é restaurado no zigoto.</div>
-    <div class="tl-item"><strong>Proporção clássica</strong> Aa × Aa: 3 dominante : 1 recessivo (fenótipo) | 1 AA : 2 Aa : 1 aa (genótipo).</div>
+  <div class="card">
+    <p>Essa lei diz que cada característica é determinada por <strong>dois alelos</strong>, um vindo do pai e outro da mãe, e que esses alelos <strong>se separam na formação dos gametas</strong>. Por isso, cada gameta leva apenas <strong>um alelo</strong> de cada característica.</p>
   </div>
-  <h3>Quadro de Punnett — Aa × Aa</h3>
+  <h3>Exemplo clássico</h3>
+  <div class="topic-grid historia-grid">
+    <article class="topic-card historia-card">
+      <strong>Ervilhas amarelas e verdes</strong>
+      <span>Se amarelo for dominante (<strong>V</strong>) e verde recessivo (<strong>v</strong>):</span>
+      <span><strong>VV</strong> = amarelo</span>
+      <span><strong>Vv</strong> = amarelo</span>
+      <span><strong>vv</strong> = verde</span>
+    </article>
+    <article class="topic-card historia-card">
+      <strong>Cruzamento parental</strong>
+      <span><strong>VV x vv</strong></span>
+      <span>Filhos da <strong>F1</strong>: todos <strong>Vv</strong></span>
+      <span>Fenótipo da <strong>F1</strong>: todos amarelos</span>
+    </article>
+  </div>
+  <h3>Cruzamento da F1</h3>
+  <div class="card card-amarelo">
+    <p>Quando Mendel cruzou os indivíduos da F1 entre si, fez o cruzamento <strong>Vv x Vv</strong>.</p>
+  </div>
   <table class="punnet">
-    <tr><th></th><th>A</th><th>a</th></tr>
-    <tr><th>A</th><td class="dom">AA</td><td class="dom">Aa</td></tr>
-    <tr><th>a</th><td class="dom">Aa</td><td class="rec">aa</td></tr>
+    <tr><th></th><th>V</th><th>v</th></tr>
+    <tr><th>V</th><td class="dom">VV</td><td class="dom">Vv</td></tr>
+    <tr><th>v</th><td class="dom">Vv</td><td class="rec">vv</td></tr>
   </table>
-  <p style="text-align:center; font-size:.9rem; color:var(--cinza);">Verde = dominante (3/4) | Rosa = recessivo (1/4)</p>
   <table class="tabela-ratio" style="margin-top:1.5rem;">
-    <tr><th>Genótipo</th><th>Proporção</th><th>Fenótipo</th></tr>
-    <tr><td>AA</td><td>1/4 = 25%</td><td>Dominante homozigoto</td></tr>
-    <tr><td>Aa</td><td>2/4 = 50%</td><td>Dominante heterozigoto</td></tr>
-    <tr><td>aa</td><td>1/4 = 25%</td><td>Recessivo</td></tr>
+    <tr><th>Resultado da F2</th><th>Proporção</th></tr>
+    <tr><td>Genótipos</td><td><strong>1 VV : 2 Vv : 1 vv</strong></td></tr>
+    <tr><td>Fenótipos</td><td><strong>3 amarelas : 1 verde</strong></td></tr>
   </table>
-  <div class="formula">Número de gametas diferentes = 2ⁿ<br><span style="font-size:.85rem;">(n = pares em heterozigose)</span></div>
-  <p>Exemplo da lista: AabbCcDd → heterozigotos: Aa, Cc, Dd (n=3) → 2³ = <strong>8 gametas</strong></p>
+  <h3>Ideias centrais</h3>
+  <div class="timeline">
+    <div class="tl-item"><strong>Dominante</strong>: aparece mesmo com um único alelo.</div>
+    <div class="tl-item"><strong>Recessivo</strong>: só aparece em dose dupla, isto é, em homozigose.</div>
+    <div class="tl-item">O alelo <strong>não some</strong>, <strong>não mistura</strong> e <strong>não desaparece</strong>.</div>
+    <div class="tl-item">Ele pode ficar escondido na <strong>F1</strong> e reaparecer na <strong>F2</strong>.</div>
+  </div>
+  <div class="card card-azul">
+    <p><strong>Resumo mental:</strong> na 1ª lei, <strong>um par de alelos se separa</strong> na formação dos gametas.</p>
+  </div>
 </section>
 
 <!-- ==================== 2ª LEI ==================== -->
 <section id="2lei" class="secao">
-  <h2>2ª Lei de Mendel — Segregação Independente</h2>
-  <div class="card card-verde"><span class="badge badge-verde">Enunciado Oficial</span>
-    <p style="font-size:1.05rem; margin-top:.5rem;"><em>"Os fatores para duas ou mais características se segregam de maneira independente, distribuindo-se aos gametas e recombinando-se ao acaso."</em></p>
+  <h2>2ª Lei de Mendel — Lei da Segregação Independente</h2>
+  <div class="card card-verde">
+    <p>Essa lei explica a herança de <strong>duas ou mais características ao mesmo tempo</strong>. Ela diz que os pares de alelos de características diferentes se distribuem <strong>independentemente</strong> na formação dos gametas.</p>
   </div>
-  <div class="card card-amarelo"><span class="badge badge-amarelo">Condição importante</span>
-    <p>Só vale para genes em <strong>cromossomos diferentes</strong>. Genes próximos tendem a ser herdados juntos (ligação gênica).</p>
+  <h3>Exemplo com duas características</h3>
+  <div class="topic-grid historia-grid">
+    <article class="topic-card historia-card">
+      <strong>Características analisadas</strong>
+      <span>Cor da semente: amarela (<strong>V</strong>) ou verde (<strong>v</strong>)</span>
+      <span>Textura: lisa (<strong>R</strong>) ou rugosa (<strong>r</strong>)</span>
+    </article>
+    <article class="topic-card historia-card">
+      <strong>Cruzamento parental</strong>
+      <span><strong>VVRR x vvrr</strong></span>
+      <span>F1: todos <strong>VvRr</strong></span>
+      <span>Fenótipo da F1: todos amarelos e lisos</span>
+    </article>
   </div>
-  <h3>Gametas de AaBb (4 tipos iguais)</h3>
+  <h3>Autofecundação da F1</h3>
+  <div class="card card-amarelo">
+    <p>Quando a F1 se autofecunda, acontece o cruzamento <strong>VvRr x VvRr</strong>.</p>
+  </div>
+  <h3>Gametas possíveis</h3>
   <div style="display:flex; gap:1rem; flex-wrap:wrap; margin:1rem 0;">
-    <div class="card" style="flex:1;min-width:90px;text-align:center;padding:1rem;"><strong style="font-size:1.3rem;">AB</strong><br><span style="font-size:.8rem;">25%</span></div>
-    <div class="card" style="flex:1;min-width:90px;text-align:center;padding:1rem;"><strong style="font-size:1.3rem;">Ab</strong><br><span style="font-size:.8rem;">25%</span></div>
-    <div class="card" style="flex:1;min-width:90px;text-align:center;padding:1rem;"><strong style="font-size:1.3rem;">aB</strong><br><span style="font-size:.8rem;">25%</span></div>
-    <div class="card" style="flex:1;min-width:90px;text-align:center;padding:1rem;"><strong style="font-size:1.3rem;">ab</strong><br><span style="font-size:.8rem;">25%</span></div>
+    <div class="card" style="flex:1;min-width:90px;text-align:center;padding:1rem;"><strong style="font-size:1.3rem;">VR</strong></div>
+    <div class="card" style="flex:1;min-width:90px;text-align:center;padding:1rem;"><strong style="font-size:1.3rem;">Vr</strong></div>
+    <div class="card" style="flex:1;min-width:90px;text-align:center;padding:1rem;"><strong style="font-size:1.3rem;">vR</strong></div>
+    <div class="card" style="flex:1;min-width:90px;text-align:center;padding:1rem;"><strong style="font-size:1.3rem;">vr</strong></div>
   </div>
-  <h3>Resultado AaBb × AaBb — proporção 9:3:3:1</h3>
+  <p>Cada indivíduo da F1 pode formar esses <strong>4 tipos de gametas</strong>, mostrando que a herança da cor ocorre de forma independente da herança da textura.</p>
   <table class="tabela-ratio">
-    <tr><th>Fenótipo</th><th>Proporção</th></tr>
-    <tr><td>A_B_ (dom/dom)</td><td>9/16</td></tr>
-    <tr><td>A_bb (dom/rec)</td><td>3/16</td></tr>
-    <tr><td>aaB_ (rec/dom)</td><td>3/16</td></tr>
-    <tr><td>aabb (rec/rec)</td><td>1/16</td></tr>
+    <tr><th>Fenótipos na F2</th><th>Proporção</th></tr>
+    <tr><td>Amarelas lisas</td><td><strong>9</strong></td></tr>
+    <tr><td>Amarelas rugosas</td><td><strong>3</strong></td></tr>
+    <tr><td>Verdes lisas</td><td><strong>3</strong></td></tr>
+    <tr><td>Verdes rugosas</td><td><strong>1</strong></td></tr>
   </table>
   <div class="card card-azul" style="margin-top:1.5rem;">
-    <p><strong>Macete:</strong> Calcule cada gene separado e multiplique as probabilidades!</p>
-    <p>Ex (Q8): CcMm × ccmm → P(cc)=1/2 × P(Mm)=1/2 = <strong>1/4 = 25%</strong></p>
+    <p><strong>Proporção clássica:</strong> <strong>9:3:3:1</strong>.</p>
+    <p>Ela mostra que duas características podem ser herdadas de modo independente.</p>
   </div>
-  <div class="formula">Gametas = 2ⁿ &nbsp;|&nbsp; Genótipos = 3ⁿ &nbsp;|&nbsp; Fenótipos = 2ⁿ<br><span style="font-size:.82rem;">(n = pares em heterozigose | dominância completa)</span></div>
+  <h3>Como entender do jeito mais simples</h3>
+  <div class="timeline">
+    <div class="tl-item"><strong>1ª lei</strong>: responde como <strong>um único caráter</strong> é herdado.</div>
+    <div class="tl-item"><strong>2ª lei</strong>: responde como <strong>dois caracteres</strong> são herdados ao mesmo tempo.</div>
+    <div class="tl-item"><strong>Resumo mental</strong>: pares diferentes de alelos <strong>se separam independentemente</strong>.</div>
+  </div>
+  <div class="card">
+    <p><strong>Importante:</strong> dominante não significa melhor ou mais comum. Significa apenas que o alelo se expressa no heterozigoto. O recessivo aparece quando o indivíduo possui os dois alelos recessivos.</p>
+  </div>
 </section>
 
 <!-- ==================== EXTRAS ==================== -->
