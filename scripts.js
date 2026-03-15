@@ -345,7 +345,7 @@ function mostrarAbaMateria(sectionId, paneId, btn, paneClass, placeholderId, she
     tab.classList.remove('ativa');
   });
 
-  const destino = secao.querySelector('#' + paneId);
+  const destino = document.getElementById(paneId);
   if (destino) destino.classList.add('ativa');
   if (btn) btn.classList.add('ativa');
 
