@@ -3,30 +3,877 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Guia de Genética — Leis de Mendel</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <title>Guia de Estudo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Literata:opsz,wght@7..72,400;7..72,500;7..72,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,500,0,0" rel="stylesheet">
   <link rel="stylesheet" href="global.css">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header>
-  <h1>🧬 Genética — Leis de Mendel</h1>
-  <p>Guia completo para estudar sua lista de exercícios</p>
-</header>
-
 <nav>
-  <button class="ativo" onclick="mostrar('vocabulario', this)">📖 Vocabulário</button>
-  <button onclick="mostrar('1lei', this)">1ª Lei</button>
-  <button onclick="mostrar('2lei', this)">2ª Lei</button>
-  <button onclick="mostrar('especial', this)">Extras</button>
-  <button onclick="mostrar('exercicios', this)">📝 Exercícios</button>
-  <button onclick="mostrar('videos', this)">▶️ Vídeos</button>
+  <div class="nav-shell">
+    <button class="nav-brand" data-section="inicio" onclick="mostrar('inicio', document.querySelector('nav button[data-section=&quot;inicio&quot;]'))">
+      <span class="material-symbols-outlined">school</span>
+      <span>Guia</span>
+    </button>
+    <div class="nav-links">
+      <button class="ativo nav-link" data-section="inicio" onclick="mostrar('inicio', this)">Home</button>
+      <button class="nav-link" data-section="biologia" onclick="mostrar('biologia', this)">Biologia</button>
+      <button class="nav-link" data-section="matematica" onclick="mostrar('matematica', this)">Matemática</button>
+      <button class="nav-link" data-section="lingua-portuguesa" onclick="mostrar('lingua-portuguesa', this)">Português</button>
+      <button class="nav-link" data-section="historia" onclick="mostrar('historia', this)">História</button>
+      <button class="nav-link" data-section="quimica" onclick="mostrar('quimica', this)">Química</button>
+      <button class="nav-link" data-section="fisica" onclick="mostrar('fisica', this)">Física</button>
+    </div>
+  </div>
 </nav>
 
+<!-- ==================== INÍCIO ==================== -->
+<section id="inicio" class="secao ativa">
+  <h2>Conteúdos</h2>
+  <div class="subject-grid">
+    <article class="subject-card destaque">
+      <div class="subject-top">
+        <span class="material-symbols-outlined subject-icon">biotech</span>
+        <span class="subject-badge">Disponível</span>
+      </div>
+      <h3>Biologia</h3>
+      <p>Guia completo de genética com vocabulário, leis de Mendel, exercícios resolvidos e vídeos.</p>
+      <button class="subject-btn" onclick="mostrar('biologia', document.querySelector('nav button[data-section=&quot;biologia&quot;]'))">Abrir Biologia</button>
+    </article>
+    <article class="subject-card">
+      <div class="subject-top">
+        <span class="material-symbols-outlined subject-icon">calculate</span>
+        <span class="subject-badge neutro">Em breve</span>
+      </div>
+      <h3>Matemática</h3>
+      <p>Separe fórmulas, exercícios e revisões em um espaço dedicado para cálculos e resolução.</p>
+      <button class="subject-btn secondary" onclick="mostrar('matematica', document.querySelector('nav button[data-section=&quot;matematica&quot;]'))">Ver seção</button>
+    </article>
+    <article class="subject-card">
+      <div class="subject-top">
+        <span class="material-symbols-outlined subject-icon">translate</span>
+        <span class="subject-badge neutro">Em breve</span>
+      </div>
+      <h3>Língua Portuguesa</h3>
+      <p>Organize gramática, interpretação, redação e análises de texto em uma única área.</p>
+      <button class="subject-btn secondary" onclick="mostrar('lingua-portuguesa', document.querySelector('nav button[data-section=&quot;lingua-portuguesa&quot;]'))">Ver seção</button>
+    </article>
+    <article class="subject-card">
+      <div class="subject-top">
+        <span class="material-symbols-outlined subject-icon">history_edu</span>
+        <span class="subject-badge neutro">Em breve</span>
+      </div>
+      <h3>História</h3>
+      <p>Reserve o conteúdo por períodos históricos, temas recorrentes e linhas do tempo.</p>
+      <button class="subject-btn secondary" onclick="mostrar('historia', document.querySelector('nav button[data-section=&quot;historia&quot;]'))">Ver seção</button>
+    </article>
+    <article class="subject-card">
+      <div class="subject-top">
+        <span class="material-symbols-outlined subject-icon">science</span>
+        <span class="subject-badge neutro">Em breve</span>
+      </div>
+      <h3>Química</h3>
+      <p>Estruture conteúdos por química geral, orgânica, estequiometria e exercícios.</p>
+      <button class="subject-btn secondary" onclick="mostrar('quimica', document.querySelector('nav button[data-section=&quot;quimica&quot;]'))">Ver seção</button>
+    </article>
+    <article class="subject-card">
+      <div class="subject-top">
+        <span class="material-symbols-outlined subject-icon">bolt</span>
+        <span class="subject-badge neutro">Em breve</span>
+      </div>
+      <h3>Física</h3>
+      <p>Deixe separado por áreas como mecânica, eletricidade, óptica e revisão final.</p>
+      <button class="subject-btn secondary" onclick="mostrar('fisica', document.querySelector('nav button[data-section=&quot;fisica&quot;]'))">Ver seção</button>
+    </article>
+  </div>
+
+  <div class="calendar-block">
+    <div class="subject-top">
+      <h3>Calendário</h3>
+      <span class="subject-badge">2026</span>
+    </div>
+    <p class="intro-copy">Calendário anual para organizar provas, revisões e prazos.</p>
+    <div id="calendario-2026" class="calendar-grid"></div>
+  </div>
+</section>
+
+<!-- ==================== BIOLOGIA ==================== -->
+<section id="biologia" class="secao">
+  <h2><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">biotech</span><span>Biologia</span></span></h2>
+  <p class="intro-copy">Conteúdo disponível nesta matéria: genética com foco nas leis de Mendel, revisão guiada e resolução de exercícios.</p>
+  <div class="topic-grid">
+    <button class="topic-card" onclick="mostrar('vocabulario', document.querySelector('nav button[data-section=&quot;biologia&quot;]'))">
+      <span class="material-symbols-outlined subject-icon">menu_book</span>
+      <strong>Vocabulário</strong>
+      <span>Conceitos essenciais para começar a revisão.</span>
+    </button>
+    <button class="topic-card" onclick="mostrar('1lei', document.querySelector('nav button[data-section=&quot;biologia&quot;]'))">
+      <span class="material-symbols-outlined subject-icon">filter_1</span>
+      <strong>1 Conteúdo</strong>
+      <span>1ª Lei de Mendel com segregação dos fatores e exemplos.</span>
+    </button>
+    <button class="topic-card" onclick="mostrar('2lei', document.querySelector('nav button[data-section=&quot;biologia&quot;]'))">
+      <span class="material-symbols-outlined subject-icon">filter_2</span>
+      <strong>2 Conteúdo</strong>
+      <span>2ª Lei de Mendel com segregação independente.</span>
+    </button>
+    <button class="topic-card" onclick="mostrar('especial', document.querySelector('nav button[data-section=&quot;biologia&quot;]'))">
+      <span class="material-symbols-outlined subject-icon">widgets</span>
+      <strong>Extras</strong>
+      <span>ABO, Rh, herança ligada ao X e aditivo.</span>
+    </button>
+    <button class="topic-card" onclick="mostrar('exercicios', document.querySelector('nav button[data-section=&quot;biologia&quot;]'))">
+      <span class="material-symbols-outlined subject-icon">assignment</span>
+      <strong>Exercícios</strong>
+      <span>Questões com dica e gabarito para treinar.</span>
+    </button>
+    <button class="topic-card" onclick="mostrar('videos', document.querySelector('nav button[data-section=&quot;biologia&quot;]'))">
+      <span class="material-symbols-outlined subject-icon">play_circle</span>
+      <strong>Vídeos</strong>
+      <span>Aulas selecionadas para reforçar a revisão.</span>
+    </button>
+  </div>
+</section>
+
+<section id="matematica" class="secao">
+  <h2><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">calculate</span><span>Matemática</span></span></h2>
+  <p class="intro-copy">Conteúdo organizado para revisar equação de 1º grau, equação de 2º grau e parábola em uma sequência direta.</p>
+  <div class="topic-grid">
+    <button class="topic-card" onclick="mostrar('mat-vocabulario', document.querySelector('nav button[data-section=&quot;matematica&quot;]'))">
+      <span class="material-symbols-outlined subject-icon">menu_book</span>
+      <strong>Vocabulário</strong>
+      <span>Termos e ideias básicas para entender as equações.</span>
+    </button>
+    <button class="topic-card" onclick="mostrar('mat-1-conteudo', document.querySelector('nav button[data-section=&quot;matematica&quot;]'))">
+      <span class="material-symbols-outlined subject-icon">filter_1</span>
+      <strong>Equação 1º grau</strong>
+      <span>Equação de 1º grau com resolução passo a passo.</span>
+    </button>
+    <button class="topic-card" onclick="mostrar('mat-2-conteudo', document.querySelector('nav button[data-section=&quot;matematica&quot;]'))">
+      <span class="material-symbols-outlined subject-icon">filter_2</span>
+      <strong>Equação 2º grau</strong>
+      <span>Equação de 2º grau e parábola.</span>
+    </button>
+    <button class="topic-card" onclick="mostrar('mat-extras', document.querySelector('nav button[data-section=&quot;matematica&quot;]'))">
+      <span class="material-symbols-outlined subject-icon">widgets</span>
+      <strong>Extras</strong>
+      <span>Dicas rápidas para acelerar a aprendizagem.</span>
+    </button>
+    <button class="topic-card" onclick="mostrar('mat-exercicios', document.querySelector('nav button[data-section=&quot;matematica&quot;]'))">
+      <span class="material-symbols-outlined subject-icon">assignment</span>
+      <strong>Exercícios</strong>
+      <span>Questões separadas por nível escola.</span>
+    </button>
+    <button class="topic-card" onclick="mostrar('mat-videos', document.querySelector('nav button[data-section=&quot;matematica&quot;]'))">
+      <span class="material-symbols-outlined subject-icon">play_circle</span>
+      <strong>Vídeos</strong>
+      <span>Videoaulas para complementar a revisão.</span>
+    </button>
+  </div>
+</section>
+
+<section id="mat-vocabulario" class="secao">
+  <h2><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">menu_book</span><span>Vocabulário de Matemática</span></span></h2>
+  <div class="vocab-grid">
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Equação de 1º grau</div><div class="def">É a equação mais simples da matemática e tem a forma geral ax + b = 0, com a diferente de zero.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">a</div><div class="def">Número que multiplica o x na equação. No 2º grau, é também o coeficiente do x².</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">b</div><div class="def">Número que acompanha o x na equação de 2º grau ou o termo somado/subtraído na equação de 1º grau.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">c</div><div class="def">Número sozinho na equação de 2º grau, sem a letra x.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Delta (Δ)</div><div class="def">Valor calculado por Δ = b² - 4ac para descobrir a quantidade e o tipo de soluções da equação de 2º grau.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Parábola</div><div class="def">Gráfico da função do 2º grau y = ax² + bx + c.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Raízes ou zeros</div><div class="def">Valores de x em que y = 0. No gráfico, são os pontos onde a parábola corta o eixo x.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Eixo de simetria</div><div class="def">Reta vertical que divide a parábola ao meio. Sua equação é x = -b / 2a.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Vértice</div><div class="def">Ponto de máximo ou mínimo da parábola, onde ela muda de direção.</div><span class="hint">toque para ver ▸</span></div>
+    <div class="vocab-item" onclick="toggle(this)"><div class="termo">Forma de vértice</div><div class="def">Escrita da função como y = a(x - h)² + k, destacando diretamente o vértice (h, k).</div><span class="hint">toque para ver ▸</span></div>
+  </div>
+</section>
+
+<section id="mat-1-conteudo" class="secao">
+  <h2><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">filter_1</span><span>Equação 1º grau</span></span></h2>
+  <div class="card card-verde">
+    <p>A equação do primeiro grau é a equação mais simples da matemática e sempre aparece na forma <strong>ax + b = 0</strong>.</p>
+    <p><strong>a</strong> é o número que multiplica o x, <strong>b</strong> é o número sozinho e <strong>x</strong> é o valor desconhecido. Importante: <strong>a ≠ 0</strong>.</p>
+  </div>
+  <div class="topic-grid historia-grid">
+    <article class="topic-card historia-card">
+      <strong>Como resolver</strong>
+      <span>Exemplo: <strong>2x + 6 = 0</strong></span>
+      <span>Passo 1: isolar o x → <strong>2x = -6</strong></span>
+      <span>Passo 2: dividir → <strong>x = -6 ÷ 2</strong></span>
+      <span>Resultado: <strong>x = -3</strong></span>
+    </article>
+    <article class="topic-card historia-card">
+      <strong>Outro exemplo</strong>
+      <span><strong>5x - 10 = 0</strong></span>
+      <span><strong>5x = 10</strong></span>
+      <span><strong>x = 2</strong></span>
+    </article>
+  </div>
+</section>
+
+<section id="mat-2-conteudo" class="secao">
+  <h2><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">filter_2</span><span>Equação 2º grau</span></span></h2>
+  <div class="card card-azul">
+    <p>A equação do segundo grau tem <strong>x²</strong> e segue a forma geral <strong>ax² + bx + c = 0</strong>.</p>
+    <p>Para resolver, usamos o <strong>Delta</strong> e a fórmula de <strong>Bhaskara</strong>.</p>
+  </div>
+  <div class="topic-grid historia-grid">
+    <article class="topic-card historia-card">
+      <strong>Bhaskara</strong>
+      <span>Primeiro, calcule o Delta: <strong>Δ = b² - 4ac</strong></span>
+      <span>Depois, aplique: <strong>x = (-b ± √Δ) / 2a</strong></span>
+      <span>Se <strong>Δ &gt; 0</strong>, existem duas soluções reais.</span>
+      <span>Se <strong>Δ = 0</strong>, existe uma solução real.</span>
+      <span>Se <strong>Δ &lt; 0</strong>, não há solução real.</span>
+    </article>
+    <article class="topic-card historia-card">
+      <strong>Exemplo resolvido</strong>
+      <span><strong>x² - 5x + 6 = 0</strong></span>
+      <span>a = 1, b = -5, c = 6</span>
+      <span>Δ = (-5)² - 4·1·6 = 25 - 24 = 1</span>
+      <span>x = (5 ± √1) / 2</span>
+      <span><strong>x1 = 3</strong> e <strong>x2 = 2</strong></span>
+    </article>
+    <article class="topic-card historia-card">
+      <strong>Parábola</strong>
+      <span>A parábola é o gráfico da função <strong>y = ax² + bx + c</strong>.</span>
+      <span>Se <strong>a &gt; 0</strong>, a parábola abre para cima.</span>
+      <span>Se <strong>a &lt; 0</strong>, a parábola abre para baixo.</span>
+      <span>As raízes são os pontos em que o gráfico corta o eixo x.</span>
+      <span>O x do vértice é dado por <strong>xv = -b / 2a</strong>.</span>
+      <span>O intercepto em y é o valor de <strong>c</strong>.</span>
+    </article>
+    <article class="topic-card historia-card">
+      <strong>Exemplo de parábola</strong>
+      <span><strong>y = x² - 4x + 3</strong></span>
+      <span>Raízes: <strong>x = 1</strong> e <strong>x = 3</strong></span>
+      <span>Vértice: <strong>xv = 2</strong></span>
+    </article>
+    <article class="topic-card historia-card">
+      <strong>Outras formas de resolver equações do 2º grau</strong>
+      <span><strong>Fatoração:</strong> útil quando a expressão pode ser escrita como produto de dois fatores.</span>
+      <span><strong>Completar quadrados:</strong> ajuda a reescrever a expressão na forma de vértice.</span>
+      <span><strong>Gráfico:</strong> permite visualizar se existem zero, uma ou duas raízes reais.</span>
+    </article>
+    <article class="topic-card historia-card">
+      <strong>Forma geral e forma de vértice</strong>
+      <span>Forma geral: <strong>y = ax² + bx + c</strong></span>
+      <span>Forma de vértice: <strong>y = a(x - h)² + k</strong></span>
+      <span>Nessa forma, o vértice é <strong>(h, k)</strong>.</span>
+      <span>Se a &gt; 0, o vértice é mínimo; se a &lt; 0, o vértice é máximo.</span>
+    </article>
+  </div>
+</section>
+
+<section id="mat-extras" class="secao">
+  <h2><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">widgets</span><span>Extras de Matemática</span></span></h2>
+  <div class="card card-amarelo">
+    <p><strong>Dicas para aprender rápido:</strong></p>
+    <p>✔ Tudo que muda de lado troca o sinal.</p>
+    <p>✔ Primeiro resolva soma ou subtração; depois divida ou multiplique.</p>
+    <p>✔ Sempre identifique os coeficientes a, b e c.</p>
+    <p>✔ Treine primeiro equações simples e depois Bhaskara.</p>
+    <p>✔ Desenhar o gráfico ajuda a entender a parábola.</p>
+  </div>
+  <div class="card">
+    <p><strong>Resumo estratégico:</strong></p>
+    <p>Se a equação quadrática estiver fácil de fatorar, esse costuma ser o caminho mais rápido.</p>
+    <p>Quando a fatoração não aparece de imediato, Bhaskara funciona como método geral.</p>
+    <p>Completar quadrados é útil para entender a passagem da forma geral para a forma de vértice.</p>
+    <p>No gráfico, a quantidade de raízes depende do encontro da parábola com o eixo x.</p>
+  </div>
+</section>
+
+<section id="mat-exercicios" class="secao">
+  <h2><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">assignment</span><span>Exercícios de Matemática</span></span></h2>
+  <div class="card">
+    <p><strong>Equação de 1º grau</strong></p>
+    <p>1. 3x + 9 = 0</p>
+    <p>2. 2x - 8 = 0</p>
+    <p>3. 7x + 14 = 0</p>
+    <p>4. 10x - 30 = 0</p>
+    <p>5. 4x + 8 = 0</p>
+    <p>6. 3x - 12 = 0</p>
+    <p>7. 9x + 27 = 0</p>
+  </div>
+  <div class="card">
+    <p><strong>Equação de 2º grau</strong></p>
+    <p>1. x² - 7x + 10 = 0</p>
+    <p>2. x² + 5x + 6 = 0</p>
+    <p>3. x² - 9 = 0</p>
+  </div>
+  <div class="card card-verde">
+    <p><strong>Resultados</strong></p>
+    <p><strong>Equação de 1º grau</strong></p>
+    <p>1. 3x + 9 = 0 → <strong>x = -3</strong></p>
+    <p>2. 2x - 8 = 0 → <strong>x = 4</strong></p>
+    <p>3. 7x + 14 = 0 → <strong>x = -2</strong></p>
+    <p>4. 10x - 30 = 0 → <strong>x = 3</strong></p>
+    <p>5. 4x + 8 = 0 → <strong>x = -2</strong></p>
+    <p>6. 3x - 12 = 0 → <strong>x = 4</strong></p>
+    <p>7. 9x + 27 = 0 → <strong>x = -3</strong></p>
+  </div>
+  <div class="card card-azul">
+    <p><strong>Equação de 2º grau</strong></p>
+    <p>1. x² - 7x + 10 = 0 → <strong>x = 5</strong> e <strong>x = 2</strong></p>
+    <p>2. x² + 5x + 6 = 0 → <strong>x = -2</strong> e <strong>x = -3</strong></p>
+    <p>3. x² - 9 = 0 → <strong>x = 3</strong> e <strong>x = -3</strong></p>
+  </div>
+</section>
+
+<section id="mat-videos" class="secao">
+  <h2><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">play_circle</span><span>Vídeos de Matemática</span></span></h2>
+  <div class="video-grid">
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/U9S-cNskgkw" allowfullscreen loading="lazy"></iframe>
+      <div class="video-info"><div class="video-tag">1º Grau</div><div class="titulo">Equação de 1º grau</div><div class="desc">Canal Matemática Rio com explicação direta para começar do zero.</div></div>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/VzduQ3_YOE8" allowfullscreen loading="lazy"></iframe>
+      <div class="video-info"><div class="video-tag">Função</div><div class="titulo">Função quadrática</div><div class="desc">Vídeo para reforçar o comportamento do gráfico e a leitura da parábola.</div></div>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/J9vFZy1F9Wc" allowfullscreen loading="lazy"></iframe>
+      <div class="video-info"><div class="video-tag">2º Grau</div><div class="titulo">Equação de 2º grau</div><div class="desc">Videoaula para revisar Delta e fórmula de Bhaskara.</div></div>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/ij8yF3j5R30" allowfullscreen loading="lazy"></iframe>
+      <div class="video-info"><div class="video-tag">Parábola</div><div class="titulo">Parábola explicada</div><div class="desc">Vídeo focado em gráfico, raízes e vértice da função do 2º grau.</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="lingua-portuguesa" class="secao">
+  <h2><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">translate</span><span>Língua Portuguesa</span></span></h2>
+  <p class="intro-copy">Estrutura preparada para gramática, interpretação, literatura e redação.</p>
+  <div class="topic-grid">
+    <article class="topic-card historia-card"><strong>Vocabulário</strong><span>Termos, classes gramaticais e conceitos introdutórios.</span></article>
+    <article class="topic-card historia-card"><strong>1 Conteúdo</strong><span>Primeiro eixo principal da disciplina.</span></article>
+    <article class="topic-card historia-card"><strong>2 Conteúdo</strong><span>Segundo eixo principal da disciplina.</span></article>
+    <article class="topic-card historia-card"><strong>Extras</strong><span>Dicas de interpretação, redação e revisão final.</span></article>
+    <article class="topic-card historia-card"><strong>Exercícios</strong><span>Questões para fixação e prática de leitura.</span></article>
+    <article class="topic-card historia-card"><strong>Vídeos</strong><span>Videoaulas e explicações complementares.</span></article>
+  </div>
+</section>
+
+<section id="historia" class="secao">
+  <h2><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">history_edu</span><span>História</span></span></h2>
+  <div class="topic-grid hist-tabs">
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaHistoria('hist-proclamacao', this)">
+      <span class="material-symbols-outlined subject-icon">flag</span>
+      <strong>Proclamação</strong>
+      <span>Fim da Monarquia e início da República em 1889.</span>
+    </button>
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaHistoria('hist-republica-velha', this)">
+      <span class="material-symbols-outlined subject-icon">account_balance</span>
+      <strong>República Velha</strong>
+      <span>República da Espada, oligarquias e crise de 1929.</span>
+    </button>
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaHistoria('hist-canudos-contestado', this)">
+      <span class="material-symbols-outlined subject-icon">terrain</span>
+      <strong>Canudos e Contestado</strong>
+      <span>Conflitos no campo e repressão do Estado.</span>
+    </button>
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaHistoria('hist-vacina-chibata', this)">
+      <span class="material-symbols-outlined subject-icon">syringe</span>
+      <strong>Vacina e Chibata</strong>
+      <span>Revoltas urbanas contra autoritarismo e violência.</span>
+    </button>
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaHistoria('hist-modernismo', this)">
+      <span class="material-symbols-outlined subject-icon">palette</span>
+      <strong>Modernismo</strong>
+      <span>Semana de 22 e renovação da cultura brasileira.</span>
+    </button>
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaHistoria('hist-tenentismo', this)">
+      <span class="material-symbols-outlined subject-icon">military_tech</span>
+      <strong>Tenentismo</strong>
+      <span>Jovens oficiais contra corrupção e oligarquias.</span>
+    </button>
+  </div>
+
+  <div id="hist-conteudo" class="hist-content-shell">
+  <div class="card" id="hist-placeholder">
+    <p>Selecione um conteúdo acima para abrir a aba com o material organizado.</p>
+  </div>
+
+  <div id="hist-proclamacao" class="hist-pane">
+    <h3>1. Proclamação da República (1889)</h3>
+    <div class="topic-grid historia-grid">
+      <article class="topic-card historia-card">
+        <strong>Contexto</strong>
+        <span>A Proclamação da República aconteceu em 15 de novembro de 1889 e marcou o fim da Monarquia no Brasil, que era governada por Dom Pedro II.</span>
+        <span><strong>O que aconteceu:</strong> o marechal Deodoro da Fonseca liderou o movimento que derrubou a Monarquia e instaurou a República.</span>
+        <span><strong>Consequências:</strong> fim do Império, início do regime republicano e Deodoro virou o primeiro presidente do Brasil.</span>
+      </article>
+      <article class="topic-card historia-card">
+        <strong>Principais causas</strong>
+        <span>insatisfação dos militares</span>
+        <span>crise da Monarquia</span>
+        <span>influência das ideias republicanas</span>
+        <span>descontentamento das elites agrárias</span>
+        <span>enfraquecimento do governo após a abolição da escravidão em 1888</span>
+      </article>
+    </div>
+  </div>
+
+  <div id="hist-republica-velha" class="hist-pane">
+    <h3>2. República Velha (1889–1930)</h3>
+    <div class="topic-grid historia-grid">
+      <article class="topic-card historia-card">
+        <strong>Fases</strong>
+        <span><strong>a) República da Espada (1889–1894):</strong> governos de Deodoro da Fonseca e Floriano Peixoto.</span>
+        <span><strong>b) República Oligárquica (1894–1930):</strong> período dominado pelas elites rurais de São Paulo e Minas Gerais.</span>
+      </article>
+      <article class="topic-card historia-card">
+        <strong>Características principais</strong>
+        <span>coronelismo</span>
+        <span>voto de cabresto</span>
+        <span>política do café com leite</span>
+        <span>economia baseada no café</span>
+        <span>exclusão política da maior parte da população</span>
+      </article>
+      <article class="topic-card historia-card">
+        <strong>Crise da República Velha</strong>
+        <span>desigualdades sociais</span>
+        <span>revoltas populares</span>
+        <span>crescimento das críticas dos militares jovens</span>
+        <span>crise econômica de 1929</span>
+      </article>
+    </div>
+  </div>
+
+  <div id="hist-canudos-contestado" class="hist-pane">
+    <h3>3. Guerra de Canudos (1896–1897)</h3>
+    <div class="topic-grid historia-grid">
+      <article class="topic-card historia-card">
+        <strong>Liderança e comunidade</strong>
+        <span>Liderança de Antônio Conselheiro no sertão da Bahia.</span>
+        <span>Canudos reunia sertanejos pobres, ex-escravizados, retirantes e pessoas excluídas socialmente.</span>
+      </article>
+      <article class="topic-card historia-card">
+        <strong>Resultado e importância</strong>
+        <span>Após expedições militares, Canudos foi destruída com violência pelo Exército.</span>
+        <span>Mostra a miséria do sertão, a violência do Estado e o abandono das populações pobres.</span>
+      </article>
+    </div>
+    <h3>4. Guerra do Contestado (1912–1916)</h3>
+    <div class="topic-grid historia-grid">
+      <article class="topic-card historia-card">
+        <strong>Causas e participantes</strong>
+        <span>Disputa de terras, expulsão de camponeses, ferrovia, domínio estrangeiro e pobreza.</span>
+        <span>Participaram principalmente sertanejos pobres liderados por figuras religiosas e messiânicas.</span>
+      </article>
+      <article class="topic-card historia-card">
+        <strong>Comparação com Canudos</strong>
+        <span>Semelhanças: população pobre e excluída, forte religiosidade e repressão militar do governo.</span>
+      </article>
+    </div>
+  </div>
+
+  <div id="hist-vacina-chibata" class="hist-pane">
+    <h3>5. Revolta da Vacina (1904)</h3>
+    <div class="topic-grid historia-grid">
+      <article class="topic-card historia-card">
+        <strong>Contexto</strong>
+        <span>No Rio de Janeiro, o governo Rodrigues Alves realizou reformas urbanas e sanitárias com Oswaldo Cruz.</span>
+        <span>Campanhas contra varíola, febre amarela e peste bubônica.</span>
+      </article>
+      <article class="topic-card historia-card">
+        <strong>Causa e resultado</strong>
+        <span>Reação à vacinação obrigatória imposta de forma autoritária.</span>
+        <span>Houve confrontos, repressão e suspensão temporária da obrigatoriedade.</span>
+      </article>
+    </div>
+    <h3>6. Revolta da Chibata (1910)</h3>
+    <div class="topic-grid historia-grid">
+      <article class="topic-card historia-card">
+        <strong>Causas e liderança</strong>
+        <span>Marinheiros (majoritariamente negros e pobres) sofriam castigos físicos, racismo e más condições.</span>
+        <span>Líder: João Cândido (Almirante Negro).</span>
+      </article>
+      <article class="topic-card historia-card">
+        <strong>Impacto</strong>
+        <span>Exigiram fim da chibata, melhores condições e anistia.</span>
+        <span>A revolta denunciou racismo estrutural e violência institucional.</span>
+      </article>
+    </div>
+  </div>
+
+  <div id="hist-modernismo" class="hist-pane">
+    <h3>7. Modernismo no Brasil</h3>
+    <div class="topic-grid historia-grid">
+      <article class="topic-card historia-card">
+        <strong>Marco e objetivos</strong>
+        <span>Marco principal: Semana de Arte Moderna de 1922, em São Paulo.</span>
+        <span>Objetivos: romper com o academicismo, valorizar cultura brasileira, inovar linguagem e aproximar arte da realidade nacional.</span>
+      </article>
+      <article class="topic-card historia-card">
+        <strong>Características e autores</strong>
+        <span>linguagem livre, nacionalismo crítico, valorização do cotidiano e experimentação artística.</span>
+        <span>Mário de Andrade, Oswald de Andrade, Manuel Bandeira, Anita Malfatti, Tarsila do Amaral e Heitor Villa-Lobos.</span>
+      </article>
+    </div>
+  </div>
+
+  <div id="hist-tenentismo" class="hist-pane">
+    <h3>8. Movimentos Tenentistas</h3>
+    <div class="topic-grid historia-grid">
+      <article class="topic-card historia-card">
+        <strong>Definição e pautas</strong>
+        <span>Movimento político-militar de jovens oficiais do Exército na década de 1920.</span>
+        <span>Defendia fim da corrupção eleitoral, voto mais limpo, centralização do poder e reformas políticas e sociais.</span>
+      </article>
+      <article class="topic-card historia-card">
+        <strong>Principais movimentos</strong>
+        <span>a) Revolta do Forte de Copacabana (1922)</span>
+        <span>b) Revolta Paulista de 1924</span>
+        <span>c) Coluna Prestes (1925–1927)</span>
+        <span>Importância: ajudou a enfraquecer a República Velha e preparar a Revolução de 1930.</span>
+      </article>
+    </div>
+  </div>
+  </div>
+</section>
+
+<section id="quimica" class="secao">
+  <h2><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">science</span><span>Química</span></span></h2>
+  <p class="intro-copy">Química orgânica com foco em cadeias carbônicas, classificação, leitura estrutural e prática de vestibular.</p>
+  <div class="topic-grid hist-tabs">
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaQuimica('quim-visao-geral', this)">
+      <span class="material-symbols-outlined subject-icon">lightbulb</span>
+      <strong>Resumo</strong>
+      <span>Visão rápida do tema, classificações e ideia central.</span>
+    </button>
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaQuimica('quim-teoria', this)">
+      <span class="material-symbols-outlined subject-icon">school</span>
+      <strong>Explicação</strong>
+      <span>Modo professor com todas as classificações cobradas.</span>
+    </button>
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaQuimica('quim-conceitos', this)">
+      <span class="material-symbols-outlined subject-icon">table_chart</span>
+      <strong>Conceitos</strong>
+      <span>Tabela-resumo para consulta rápida e comparação.</span>
+    </button>
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaQuimica('quim-exemplos', this)">
+      <span class="material-symbols-outlined subject-icon">biotech</span>
+      <strong>Exemplos</strong>
+      <span>Classificações comentadas passo a passo.</span>
+    </button>
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaQuimica('quim-exercicios', this)">
+      <span class="material-symbols-outlined subject-icon">assignment</span>
+      <strong>Exercícios</strong>
+      <span>Questões para praticar antes de abrir o gabarito.</span>
+    </button>
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaQuimica('quim-revisao', this)">
+      <span class="material-symbols-outlined subject-icon">auto_stories</span>
+      <strong>Revisão Final</strong>
+      <span>Dicas, mapa mental e pontos que mais caem.</span>
+    </button>
+  </div>
+
+  <div id="quim-conteudo" class="hist-content-shell">
+    <div class="card" id="quim-placeholder">
+      <p>Selecione uma aba acima para abrir o material de cadeias carbônicas organizado por bloco.</p>
+    </div>
+
+    <div id="quim-visao-geral" class="chem-pane">
+      <h3>1. Resumo simples</h3>
+      <div class="card card-verde">
+        <p>Cadeia carbônica é a espinha dorsal de uma molécula orgânica. Ela mostra como os átomos de carbono estão ligados entre si.</p>
+        <p>Pense no carbono como peça de montar: ele consegue se ligar a outros carbonos e formar linhas abertas, anéis e estruturas com galhos laterais.</p>
+      </div>
+      <div class="topic-grid historia-grid">
+        <article class="topic-card historia-card">
+          <strong>Classificações principais</strong>
+          <span>forma: aberta, fechada ou mista</span>
+          <span>ramificação: normal ou ramificada</span>
+          <span>tipo de ligação: saturada ou insaturada</span>
+          <span>composição: homogênea ou heterogênea</span>
+          <span>aromaticidade: aromática ou não aromática</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>Por que isso importa</strong>
+          <span>ajuda a identificar a molécula</span>
+          <span>facilita a nomenclatura</span>
+          <span>permite prever propriedades químicas</span>
+          <span>cai muito em vestibulares e provas escolares</span>
+        </article>
+      </div>
+    </div>
+
+    <div id="quim-teoria" class="chem-pane">
+      <h3>2. Explicação completa</h3>
+      <div class="card">
+        <p>O carbono é tetravalente, ou seja, pode fazer até 4 ligações covalentes. Isso permite a formação de cadeias muito variadas e sustenta boa parte da Química Orgânica.</p>
+      </div>
+      <div class="topic-grid historia-grid">
+        <article class="topic-card historia-card">
+          <strong>Quanto à forma</strong>
+          <span><strong>Aberta:</strong> tem extremidades livres e não forma anel.</span>
+          <span><strong>Fechada:</strong> os carbonos formam um ciclo.</span>
+          <span><strong>Mista:</strong> combina uma parte aberta com uma parte fechada.</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>Quanto à ramificação</strong>
+          <span><strong>Normal ou linear:</strong> sem galhos laterais.</span>
+          <span><strong>Ramificada:</strong> apresenta um ou mais grupos saindo da cadeia principal.</span>
+          <span>Nessas cadeias podem aparecer carbonos terciários e quaternários.</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>Quanto ao tipo de ligação</strong>
+          <span><strong>Saturada:</strong> só tem ligações simples entre carbonos.</span>
+          <span><strong>Insaturada:</strong> possui pelo menos uma dupla ou tripla entre carbonos.</span>
+          <span>Atenção: a análise é feita nas ligações <strong>entre carbonos</strong>.</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>Quanto à composição</strong>
+          <span><strong>Homogênea:</strong> sem heteroátomo entre carbonos.</span>
+          <span><strong>Heterogênea:</strong> com O, N, S ou outro heteroátomo inserido entre carbonos.</span>
+          <span>Se o heteroátomo estiver fora da sequência carbônica, a cadeia não vira heterogênea.</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>Quanto à aromaticidade</strong>
+          <span><strong>Aromática:</strong> possui anel aromático, como o benzeno.</span>
+          <span>Pode ser mononuclear ou polinuclear.</span>
+          <span>Quando é fechada e não aromática, costuma ser chamada de alicíclica.</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>Classificação dos carbonos</strong>
+          <span><strong>Primário:</strong> ligado a 1 carbono.</span>
+          <span><strong>Secundário:</strong> ligado a 2 carbonos.</span>
+          <span><strong>Terciário:</strong> ligado a 3 carbonos.</span>
+          <span><strong>Quaternário:</strong> ligado a 4 carbonos.</span>
+        </article>
+      </div>
+      <div class="card card-azul">
+        <p><strong>Relação com nomenclatura:</strong> a quantidade de carbonos aparece em prefixos como met-, et-, prop-, but-, pent-, hex-, hept-, oct-, non- e dec-.</p>
+        <p>Exemplos: <strong>propano</strong> tem 3 carbonos e é saturado; <strong>propeno</strong> tem 3 carbonos e uma dupla ligação.</p>
+      </div>
+    </div>
+
+    <div id="quim-conceitos" class="chem-pane">
+      <h3>3. Conceitos principais</h3>
+      <div class="card">
+        <table class="tabela-ratio chem-table">
+          <thead>
+            <tr>
+              <th>Conceito</th>
+              <th>Explicação curta</th>
+              <th>Exemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Cadeia aberta</td><td>Não forma ciclo</td><td>CH3-CH2-CH3</td></tr>
+            <tr><td>Cadeia fechada</td><td>Forma anel</td><td>ciclohexano</td></tr>
+            <tr><td>Cadeia mista</td><td>Tem parte aberta e parte fechada</td><td>anel com ramificação aberta</td></tr>
+            <tr><td>Normal</td><td>Sem ramificações</td><td>butano</td></tr>
+            <tr><td>Ramificada</td><td>Com galhos laterais</td><td>isobutano</td></tr>
+            <tr><td>Saturada</td><td>Só ligações simples C-C</td><td>etano</td></tr>
+            <tr><td>Insaturada</td><td>Tem dupla ou tripla C-C</td><td>eteno, etino</td></tr>
+            <tr><td>Homogênea</td><td>Sem heteroátomo entre carbonos</td><td>propano</td></tr>
+            <tr><td>Heterogênea</td><td>Com heteroátomo entre carbonos</td><td>CH3-O-CH3</td></tr>
+            <tr><td>Aromática</td><td>Possui anel aromático</td><td>benzeno</td></tr>
+            <tr><td>Carbono primário</td><td>Ligado a 1 carbono</td><td>carbono da ponta</td></tr>
+            <tr><td>Carbono secundário</td><td>Ligado a 2 carbonos</td><td>carbono do meio</td></tr>
+            <tr><td>Carbono terciário</td><td>Ligado a 3 carbonos</td><td>centro de ramificação</td></tr>
+            <tr><td>Carbono quaternário</td><td>Ligado a 4 carbonos</td><td>carbono central muito ramificado</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="quim-exemplos" class="chem-pane">
+      <h3>4. Exemplos práticos</h3>
+      <div class="topic-grid historia-grid">
+        <article class="topic-card historia-card">
+          <strong>Problema 1: CH3-CH2-CH2-CH3</strong>
+          <span>não forma ciclo: aberta</span>
+          <span>não tem ramificação: normal</span>
+          <span>só tem ligações simples: saturada</span>
+          <span>não tem heteroátomo entre carbonos: homogênea</span>
+          <span><strong>Resposta final:</strong> aberta, normal, saturada e homogênea.</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>Problema 2: CH3-CH=CH-CH3</strong>
+          <span>cadeia aberta</span>
+          <span>sem ramificação</span>
+          <span>possui ligação dupla entre carbonos</span>
+          <span>sem heteroátomo na cadeia</span>
+          <span><strong>Resposta final:</strong> aberta, normal, insaturada e homogênea.</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>Problema 3: CH3-O-CH2-CH3</strong>
+          <span>não forma anel: aberta</span>
+          <span>sem ramificação relevante: normal</span>
+          <span>entre carbonos só há ligações simples</span>
+          <span>há oxigênio entre dois carbonos</span>
+          <span><strong>Resposta final:</strong> aberta, normal, saturada e heterogênea.</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>Problema 4: benzeno</strong>
+          <span>forma ciclo</span>
+          <span>possui anel aromático</span>
+          <span>todos os átomos do anel são carbonos</span>
+          <span><strong>Resposta final:</strong> fechada, aromática, homogênea e insaturada no sentido estrutural do anel.</span>
+        </article>
+      </div>
+    </div>
+
+    <div id="quim-exercicios" class="chem-pane">
+      <h3>5. Exercícios para praticar</h3>
+      <p style="color:var(--cinza); margin-bottom:1.5rem;">Tente resolver sozinho antes de abrir o gabarito.</p>
+
+      <div class="questao">
+        <div class="num">1</div>
+        <div class="enunciado">Classifique a cadeia CH3-CH2-CH3 quanto à forma, ramificação, saturação e composição.</div>
+        <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
+        <div class="gabarito-box">Aberta, normal, saturada e homogênea.</div>
+      </div>
+
+      <div class="questao">
+        <div class="num">2</div>
+        <div class="enunciado">A cadeia CH2=CH-CH3 é: A) fechada, saturada, homogênea B) aberta, insaturada, homogênea C) aberta, saturada, heterogênea D) fechada, insaturada, heterogênea</div>
+        <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
+        <div class="gabarito-box"><strong>B.</strong> Aberta, insaturada e homogênea.</div>
+      </div>
+
+      <div class="questao">
+        <div class="num">3</div>
+        <div class="enunciado">A presença de um oxigênio entre dois carbonos torna a cadeia: A) aromática B) ramificada C) heterogênea D) saturada</div>
+        <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
+        <div class="gabarito-box"><strong>C.</strong> Heterogênea.</div>
+      </div>
+
+      <div class="questao">
+        <div class="num">4</div>
+        <div class="enunciado">Em uma cadeia ramificada, espera-se encontrar: A) apenas carbonos primários B) apenas carbonos secundários C) carbonos terciários e/ou quaternários D) ausência de extremidades</div>
+        <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
+        <div class="gabarito-box"><strong>C.</strong> Carbonos terciários e/ou quaternários.</div>
+      </div>
+
+      <div class="questao">
+        <div class="num">5</div>
+        <div class="enunciado">Classifique o benzeno quanto à forma e aromaticidade.</div>
+        <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
+        <div class="gabarito-box">Fechada e aromática.</div>
+      </div>
+
+      <div class="questao">
+        <div class="num">6</div>
+        <div class="enunciado">Quantos carbonos secundários existem em CH3-CH2-CH2-CH3?</div>
+        <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
+        <div class="gabarito-box">2 carbonos secundários.</div>
+      </div>
+
+      <div class="questao">
+        <div class="num">7</div>
+        <div class="enunciado">A cadeia CH3-CH(CH3)-CH3 é normal ou ramificada? Justifique.</div>
+        <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
+        <div class="gabarito-box">Ramificada, porque o grupo CH3 lateral funciona como ramificação.</div>
+      </div>
+
+      <div class="questao">
+        <div class="num">8</div>
+        <div class="enunciado">Monte a classificação completa de CH3-CH2-O-CH2-CH3.</div>
+        <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
+        <div class="gabarito-box">Aberta, normal, saturada e heterogênea.</div>
+      </div>
+    </div>
+
+    <div id="quim-revisao" class="chem-pane">
+      <h3>6. Revisão final</h3>
+      <div class="topic-grid historia-grid">
+        <article class="topic-card historia-card">
+          <strong>Dicas para aprender mais rápido</strong>
+          <span>comece sempre por 4 perguntas: forma, ramificação, saturação e composição</span>
+          <span>heteroátomo só conta se estiver entre carbonos</span>
+          <span>dupla com oxigênio não torna a cadeia insaturada neste critério</span>
+          <span>ramificação quase sempre sugere carbono terciário ou quaternário</span>
+          <span>desenhar a cadeia evita erro de classificação</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>Prefixos que mais aparecem</strong>
+          <span>1: met-</span>
+          <span>2: et-</span>
+          <span>3: prop-</span>
+          <span>4: but-</span>
+          <span>5: pent-</span>
+          <span>6: hex-</span>
+          <span>7: hept-</span>
+          <span>8: oct-</span>
+          <span>9: non-</span>
+          <span>10: dec-</span>
+        </article>
+      </div>
+
+      <div class="card card-amarelo">
+        <strong>Mapa mental simplificado</strong>
+        <pre class="chem-diagram">CADEIAS CARBONICAS
+|
+|-- Forma
+|   |-- Aberta
+|   |-- Fechada
+|   |-- Mista
+|
+|-- Ramificacao
+|   |-- Normal
+|   |-- Ramificada
+|
+|-- Ligacoes
+|   |-- Saturada
+|   |-- Insaturada
+|
+|-- Composicao
+|   |-- Homogenea
+|   |-- Heterogenea
+|
+|-- Aromaticidade
+    |-- Aromatica
+    |-- Nao aromatica</pre>
+      </div>
+
+      <div class="topic-grid historia-grid">
+        <article class="topic-card historia-card">
+          <strong>Esquema visual</strong>
+          <span><strong>Aberta:</strong> C-C-C-C</span>
+          <span><strong>Fechada:</strong> forma ciclo</span>
+          <span><strong>Mista:</strong> C-C-(anel)</span>
+          <span><strong>Ramificada:</strong> C-C-C com um carbono lateral</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>Mini revisão final</strong>
+          <span>aberta = tem extremidades</span>
+          <span>fechada = forma ciclo</span>
+          <span>saturada = só simples entre carbonos</span>
+          <span>insaturada = dupla ou tripla entre carbonos</span>
+          <span>homogênea = sem heteroátomo entre carbonos</span>
+          <span>heterogênea = com heteroátomo entre carbonos</span>
+          <span>ramificada = tem galhos</span>
+          <span>aromática = tem anel aromático</span>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="fisica" class="secao">
+  <h2><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">bolt</span><span>Física</span></span></h2>
+  <p class="intro-copy">Estrutura preparada para mecânica, eletricidade, óptica e demais áreas da física.</p>
+  <div class="topic-grid">
+    <article class="topic-card historia-card"><strong>Vocabulário</strong><span>Conceitos-base, grandezas e unidades importantes.</span></article>
+    <article class="topic-card historia-card"><strong>1 Conteúdo</strong><span>Primeiro bloco principal da disciplina.</span></article>
+    <article class="topic-card historia-card"><strong>2 Conteúdo</strong><span>Segundo bloco principal da disciplina.</span></article>
+    <article class="topic-card historia-card"><strong>Extras</strong><span>Revisões rápidas, observações e macetes.</span></article>
+    <article class="topic-card historia-card"><strong>Exercícios</strong><span>Questões e resolução prática.</span></article>
+    <article class="topic-card historia-card"><strong>Vídeos</strong><span>Bloco reservado para videoaulas.</span></article>
+  </div>
+</section>
+
 <!-- ==================== VOCABULÁRIO ==================== -->
-<section id="vocabulario" class="secao ativa">
-  <h2>📖 Vocabulário Essencial de Genética</h2>
+<section id="vocabulario" class="secao">
+  <h2><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">menu_book</span><span>Vocabulário Essencial de Genética</span></span></h2>
   <p style="color:var(--cinza); margin-bottom:1.5rem;">Clique em cada termo para ver a definição. Sua lista pede que você estude esse vocabulário!</p>
   <div class="vocab-grid">
     <div class="vocab-item" onclick="toggle(this)"><div class="termo">Gene</div><div class="def">Unidade básica da hereditariedade. Segmento de DNA que contém informação para uma característica.</div><span class="hint">toque para ver ▸</span></div>
@@ -114,7 +961,7 @@
 <!-- ==================== EXTRAS ==================== -->
 <section id="especial" class="secao">
   <h2>Tópicos Extras da sua Lista</h2>
-  <h3>🩸 Sistema ABO e Fator Rh</h3>
+  <h3><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">bloodtype</span><span>Sistema ABO e Fator Rh</span></span></h3>
   <div class="card card-verde">
     <table class="tabela-ratio">
       <tr><th>Tipo</th><th>Genótipos</th><th>Antígeno</th></tr>
@@ -125,7 +972,7 @@
     </table>
   </div>
   <p><strong>Fator Rh:</strong> Rh+ dominante (R_), Rh- recessivo (rr).</p>
-  <h3>🔗 Herança Ligada ao X</h3>
+  <h3><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">linked_services</span><span>Herança Ligada ao X</span></span></h3>
   <div class="card card-vermelho">
     <p><strong>Homens (XY):</strong> um só X → se tiver alelo recessivo, manifesta a doença.</p>
     <p><strong>Mulheres (XX):</strong> precisam de dois alelos recessivos para manifestar; com um só são portadoras.</p>
@@ -141,12 +988,12 @@
     <tr><td>XHY</td><td>Normal</td></tr>
     <tr><td>XhY</td><td>Afetado (daltônico/hemofílico)</td></tr>
   </table>
-  <h3>📊 Herança Quantitativa (Efeito Aditivo)</h3>
+  <h3><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">bar_chart</span><span>Herança Quantitativa (Efeito Aditivo)</span></span></h3>
   <div class="card card-azul">
     <p>Cada alelo dominante <strong>adiciona</strong> um valor. Na lista, cada A ou B adiciona 0,15m:</p>
     <p>• aabb = 1,00m | • 1 dom = 1,15m | • 2 = 1,30m | • 3 = 1,45m | • AABB = 1,60m</p>
   </div>
-  <h3>🔴 Talassemia — Codominância</h3>
+  <h3><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">warning</span><span>Talassemia — Codominância</span></span></h3>
   <div class="card card-amarelo">
     <p>MM = maior (grave, morre antes de reproduzir) | MN = menor (branda) | NN = normal</p>
     <p style="margin-top:.5rem;">MN × MN → 1MM : 2MN : 1NN. Excluindo MM: <strong>2/3 adultos são anêmicos (MN)</strong></p>
@@ -155,77 +1002,77 @@
 
 <!-- ==================== EXERCÍCIOS ==================== -->
 <section id="exercicios" class="secao">
-  <h2>📝 Exercícios da Lista — Com Dicas e Gabarito</h2>
+  <h2><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">assignment</span><span>Exercícios da Lista — Com Dicas e Gabarito</span></span></h2>
   <p style="color:var(--cinza); margin-bottom:1.5rem;">Tente resolver antes de ver a dica ou gabarito!</p>
   <div class="questao">
     <div class="num">1</div>
     <div class="enunciado">Miopia e canhoto são genes <u>recessivos</u>. Homem normal/destro (pai míope/canhoto) × mulher normal/destra, heterozigota para os dois.<br><strong>a)</strong> Genótipos e fenótipos dos filhos? <strong>b)</strong> Probabilidade de fenótipo igual ao pai?</div>
-    <button class="dica-btn" onclick="mostrarBox(this,'dica')">💡 Dica</button>
-    <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')">✓ Gabarito</button>
+    <button class="dica-btn" onclick="mostrarBox(this,'dica')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">lightbulb</span><span>Dica</span></span></button>
+    <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
     <div class="dica-box">Pai: avô era míope/canhoto → pai é <strong>MmCc</strong>. Mãe é heterozigota para os dois: <strong>MmCc</strong>. Use a 2ª Lei (9:3:3:1)!</div>
     <div class="gabarito-box">Pai = MmCc | Mãe = MmCc<br>• 9/16 normal/destro | • 3/16 normal/canhoto | • 3/16 míope/destro | • 1/16 míope/canhoto<br>Fenótipo do pai = normal/destro = <strong>9/16 ≈ 56,25%</strong></div>
   </div>
   <div class="questao">
     <div class="num">4</div>
     <div class="enunciado">Albinismo recessivo. Rapaz albino × moça normal cuja mãe é albina. Probabilidade do filho ser albino?</div>
-    <button class="dica-btn" onclick="mostrarBox(this,'dica')">💡 Dica</button>
-    <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')">✓ Gabarito</button>
+    <button class="dica-btn" onclick="mostrarBox(this,'dica')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">lightbulb</span><span>Dica</span></span></button>
+    <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
     <div class="dica-box">Rapaz = <strong>aa</strong>. Moça normal com mãe albina → recebeu 'a' da mãe → moça é <strong>Aa</strong>.</div>
     <div class="gabarito-box">aa × Aa → 1/2 Aa (normal) + 1/2 aa (albino) = <strong>50%</strong></div>
   </div>
   <div class="questao">
     <div class="num">5</div>
     <div class="enunciado">Pelos curtos (C) dominante. Cc × Cc → 480 filhotes, 360 curtos. Quantos curtos são heterozigotos?</div>
-    <button class="dica-btn" onclick="mostrarBox(this,'dica')">💡 Dica</button>
-    <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')">✓ Gabarito</button>
+    <button class="dica-btn" onclick="mostrarBox(this,'dica')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">lightbulb</span><span>Dica</span></span></button>
+    <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
     <div class="dica-box">Cc × Cc → 1/4 CC, 2/4 Cc, 1/4 cc. Dos curtos, 2/3 são Cc. Calcule 2/3 de 360.</div>
     <div class="gabarito-box">360 × 2/3 = <strong>240 heterozigotos (Cc)</strong></div>
   </div>
   <div class="questao">
     <div class="num">6</div>
     <div class="enunciado">Quantos gametas diferentes produz AabbCcDd?</div>
-    <button class="dica-btn" onclick="mostrarBox(this,'dica')">💡 Dica</button>
-    <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')">✓ Gabarito</button>
+    <button class="dica-btn" onclick="mostrarBox(this,'dica')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">lightbulb</span><span>Dica</span></span></button>
+    <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
     <div class="dica-box">2ⁿ onde n = pares em heterozigose. Quais são heterozigotos?</div>
     <div class="gabarito-box">Heterozigotos: Aa, Cc, Dd → n=3 | bb não contribui → 2³ = <strong>8 gametas</strong></div>
   </div>
   <div class="questao">
     <div class="num">7</div>
     <div class="enunciado">Indivíduo BBCc produz quais gametas (2ª Lei)?</div>
-    <button class="dica-btn" onclick="mostrarBox(this,'dica')">💡 Dica</button>
-    <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')">✓ Gabarito</button>
+    <button class="dica-btn" onclick="mostrarBox(this,'dica')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">lightbulb</span><span>Dica</span></span></button>
+    <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
     <div class="dica-box">BB sempre passa B. Cc passa C ou c.</div>
     <div class="gabarito-box"><strong>BC e Bc</strong> (50% cada)</div>
   </div>
   <div class="questao">
     <div class="num">8</div>
     <div class="enunciado">CcMm × ccmm. Probabilidade de filha com olhos claros (cc) e visão normal (M_)?</div>
-    <button class="dica-btn" onclick="mostrarBox(this,'dica')">💡 Dica</button>
-    <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')">✓ Gabarito</button>
+    <button class="dica-btn" onclick="mostrarBox(this,'dica')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">lightbulb</span><span>Dica</span></span></button>
+    <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
     <div class="dica-box">Calcule P(cc) e P(M_) separados, depois multiplique.</div>
     <div class="gabarito-box">P(cc) = 1/2 | P(Mm) = 1/2 → 1/2 × 1/2 = <strong>1/4 = 25%</strong></div>
   </div>
   <div class="questao">
     <div class="num">11</div>
     <div class="enunciado">Talassemia MN × MN. MM morre antes de reproduzir. Fração dos adultos que é anêmica?</div>
-    <button class="dica-btn" onclick="mostrarBox(this,'dica')">💡 Dica</button>
-    <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')">✓ Gabarito</button>
+    <button class="dica-btn" onclick="mostrarBox(this,'dica')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">lightbulb</span><span>Dica</span></span></button>
+    <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
     <div class="dica-box">MN × MN → 1MM : 2MN : 1NN. Retire os MM (morrem). Calcule a fração restante.</div>
     <div class="gabarito-box">Restam 2 MN e 1 NN → anêmicos = <strong>2/3 dos adultos</strong></div>
   </div>
   <div class="questao">
     <div class="num">15</div>
     <div class="enunciado">Hemofilia recessiva ligada ao X. Homem normal × mulher portadora. P(filha hemofílica)?</div>
-    <button class="dica-btn" onclick="mostrarBox(this,'dica')">💡 Dica</button>
-    <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')">✓ Gabarito</button>
+    <button class="dica-btn" onclick="mostrarBox(this,'dica')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">lightbulb</span><span>Dica</span></span></button>
+    <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
     <div class="dica-box">Pai = XHY. Mãe = XHXh. Filha hemofílica precisaria de Xh do pai — o pai tem?</div>
     <div class="gabarito-box">Filhas: XHXH e XHXh (nenhuma hemofílica). Pai não tem Xh. <strong>d) 0%</strong></div>
   </div>
   <div class="questao">
     <div class="num">16</div>
     <div class="enunciado">Daltonismo ligado ao X. Homem daltônico × mulher normal homozigota. P(filho masculino daltônico)?</div>
-    <button class="dica-btn" onclick="mostrarBox(this,'dica')">💡 Dica</button>
-    <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')">✓ Gabarito</button>
+    <button class="dica-btn" onclick="mostrarBox(this,'dica')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">lightbulb</span><span>Dica</span></span></button>
+    <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
     <div class="dica-box">Pai = XdY. Mãe = XDXD. Filhos recebem Y do pai e X da mãe. Que X a mãe passa?</div>
     <div class="gabarito-box">Mãe só tem XD → todos os filhos = XDY (normais). <strong>d) Não há chance</strong></div>
   </div>
@@ -233,9 +1080,9 @@
 
 <!-- ==================== VÍDEOS ==================== -->
 <section id="videos" class="secao">
-  <h2>▶️ Vídeos Explicativos</h2>
+  <h2><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">play_circle</span><span>Vídeos Explicativos</span></span></h2>
   <p style="color:var(--cinza); margin-bottom:.5rem;">Seleção de vídeos do YouTube para reforçar cada tema da lista. Assista depois de estudar cada seção!</p>
-  <h3>🧬 Introdução à Genética e Vocabulário</h3>
+  <h3><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">biotech</span><span>Introdução à Genética e Vocabulário</span></span></h3>
   <div class="video-grid">
     <div class="video-card">
       <iframe src="https://www.youtube.com/embed/Lxs6L3RO4Ag" allowfullscreen loading="lazy"></iframe>
@@ -246,7 +1093,7 @@
       <div class="video-info"><div class="video-tag">Vocabulário</div><div class="titulo">Homozigoto, Heterozigoto e Gametas</div><div class="desc">Entenda a diferença entre homozigoto dominante, recessivo e heterozigoto com exemplos práticos.</div></div>
     </div>
   </div>
-  <h3>1️⃣ 1ª Lei de Mendel</h3>
+  <h3><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">filter_1</span><span>1ª Lei de Mendel</span></span></h3>
   <div class="video-grid">
     <div class="video-card">
       <iframe src="https://www.youtube.com/embed/oLTe0GCfBqw" allowfullscreen loading="lazy"></iframe>
@@ -257,7 +1104,7 @@
       <div class="video-info"><div class="video-tag">1ª Lei</div><div class="titulo">Quadro de Punnett — Como Montar</div><div class="desc">Aprenda a montar o quadro e resolver cruzamentos monohíbridos com facilidade.</div></div>
     </div>
   </div>
-  <h3>2️⃣ 2ª Lei de Mendel</h3>
+  <h3><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">filter_2</span><span>2ª Lei de Mendel</span></span></h3>
   <div class="video-grid">
     <div class="video-card">
       <iframe src="https://www.youtube.com/embed/dF_f8FhGHhw" allowfullscreen loading="lazy"></iframe>
@@ -268,7 +1115,7 @@
       <div class="video-info"><div class="video-tag">2ª Lei</div><div class="titulo">Dihibridismo — Exercícios Resolvidos</div><div class="desc">Resolução de exercícios de dihibridismo com o macete da multiplicação de probabilidades.</div></div>
     </div>
   </div>
-  <h3>🩸 Sistema ABO, Rh e Herança Ligada ao X</h3>
+  <h3><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">bloodtype</span><span>Sistema ABO, Rh e Herança Ligada ao X</span></span></h3>
   <div class="video-grid">
     <div class="video-card">
       <iframe src="https://www.youtube.com/embed/1EDKGjqVHfU" allowfullscreen loading="lazy"></iframe>
@@ -287,8 +1134,9 @@
 
 <!-- ==================== FOOTER ==================== -->
 <footer>
-  <p>🧬 Guia de Estudos — Genética | Leis de Mendel</p>
-  <p style="margin-top:.3rem;">Bons estudos! Vocabulário → Leis → Exercícios → Vídeos 🚀</p>
+  <p><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">school</span><span>Guia de Estudo por Matéria</span></span></p>
+  <p style="margin-top:.3rem;"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">rocket_launch</span><span>Bons estudos! Organize seu conteúdo e avance matéria por matéria.</span></span></p>
+  <p style="margin-top:.5rem;">Desenvolvido por Nicolas Bertacin</p>
 </footer>
 
 <script src="scripts.js"></script>
