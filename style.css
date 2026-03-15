@@ -811,10 +811,16 @@ footer .icon-wrap {
   display: block;
 }
 
+.bio-pane,
+.mat-pane,
+.fis-pane,
 .chem-pane {
   display: none;
 }
 
+.bio-pane.ativa,
+.mat-pane.ativa,
+.fis-pane.ativa,
 .chem-pane.ativa {
   display: block;
 }

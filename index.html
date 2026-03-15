@@ -103,74 +103,84 @@
 <section id="biologia" class="secao">
   <h2><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">biotech</span><span>Biologia</span></span></h2>
   <p class="intro-copy">Conteúdo disponível nesta matéria: genética com foco nas leis de Mendel, revisão guiada e resolução de exercícios.</p>
-  <div class="topic-grid">
-    <button class="topic-card" onclick="mostrar('vocabulario', document.querySelector('nav button[data-section=&quot;biologia&quot;]'))">
+  <div class="topic-grid hist-tabs">
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaBiologia('vocabulario', this)">
       <span class="material-symbols-outlined subject-icon">menu_book</span>
       <strong>Vocabulário</strong>
       <span>Conceitos essenciais para começar a revisão.</span>
     </button>
-    <button class="topic-card" onclick="mostrar('1lei', document.querySelector('nav button[data-section=&quot;biologia&quot;]'))">
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaBiologia('1lei', this)">
       <span class="material-symbols-outlined subject-icon">filter_1</span>
       <strong>1 Conteúdo</strong>
       <span>1ª Lei de Mendel com segregação dos fatores e exemplos.</span>
     </button>
-    <button class="topic-card" onclick="mostrar('2lei', document.querySelector('nav button[data-section=&quot;biologia&quot;]'))">
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaBiologia('2lei', this)">
       <span class="material-symbols-outlined subject-icon">filter_2</span>
       <strong>2 Conteúdo</strong>
       <span>2ª Lei de Mendel com segregação independente.</span>
     </button>
-    <button class="topic-card" onclick="mostrar('especial', document.querySelector('nav button[data-section=&quot;biologia&quot;]'))">
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaBiologia('especial', this)">
       <span class="material-symbols-outlined subject-icon">widgets</span>
       <strong>Extras</strong>
       <span>ABO, Rh, herança ligada ao X e aditivo.</span>
     </button>
-    <button class="topic-card" onclick="mostrar('exercicios', document.querySelector('nav button[data-section=&quot;biologia&quot;]'))">
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaBiologia('exercicios', this)">
       <span class="material-symbols-outlined subject-icon">assignment</span>
       <strong>Exercícios</strong>
       <span>Questões com dica e gabarito para treinar.</span>
     </button>
-    <button class="topic-card" onclick="mostrar('videos', document.querySelector('nav button[data-section=&quot;biologia&quot;]'))">
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaBiologia('videos', this)">
       <span class="material-symbols-outlined subject-icon">play_circle</span>
       <strong>Vídeos</strong>
       <span>Aulas selecionadas para reforçar a revisão.</span>
     </button>
+  </div>
+  <div id="bio-conteudo" class="hist-content-shell">
+    <div class="card" id="bio-placeholder">
+      <p>Selecione uma aba acima para abrir o conteúdo de Biologia.</p>
+    </div>
   </div>
 </section>
 
 <section id="matematica" class="secao">
   <h2><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">calculate</span><span>Matemática</span></span></h2>
   <p class="intro-copy">Conteúdo organizado para revisar equação de 1º grau, equação de 2º grau e parábola em uma sequência direta.</p>
-  <div class="topic-grid">
-    <button class="topic-card" onclick="mostrar('mat-vocabulario', document.querySelector('nav button[data-section=&quot;matematica&quot;]'))">
+  <div class="topic-grid hist-tabs">
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaMatematica('mat-vocabulario', this)">
       <span class="material-symbols-outlined subject-icon">menu_book</span>
       <strong>Vocabulário</strong>
       <span>Termos e ideias básicas para entender as equações.</span>
     </button>
-    <button class="topic-card" onclick="mostrar('mat-1-conteudo', document.querySelector('nav button[data-section=&quot;matematica&quot;]'))">
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaMatematica('mat-1-conteudo', this)">
       <span class="material-symbols-outlined subject-icon">filter_1</span>
       <strong>Equação 1º grau</strong>
       <span>Equação de 1º grau com resolução passo a passo.</span>
     </button>
-    <button class="topic-card" onclick="mostrar('mat-2-conteudo', document.querySelector('nav button[data-section=&quot;matematica&quot;]'))">
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaMatematica('mat-2-conteudo', this)">
       <span class="material-symbols-outlined subject-icon">filter_2</span>
       <strong>Equação 2º grau</strong>
       <span>Equação de 2º grau e parábola.</span>
     </button>
-    <button class="topic-card" onclick="mostrar('mat-extras', document.querySelector('nav button[data-section=&quot;matematica&quot;]'))">
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaMatematica('mat-extras', this)">
       <span class="material-symbols-outlined subject-icon">widgets</span>
       <strong>Extras</strong>
       <span>Dicas rápidas para acelerar a aprendizagem.</span>
     </button>
-    <button class="topic-card" onclick="mostrar('mat-exercicios', document.querySelector('nav button[data-section=&quot;matematica&quot;]'))">
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaMatematica('mat-exercicios', this)">
       <span class="material-symbols-outlined subject-icon">assignment</span>
       <strong>Exercícios</strong>
       <span>Questões separadas por nível escola.</span>
     </button>
-    <button class="topic-card" onclick="mostrar('mat-videos', document.querySelector('nav button[data-section=&quot;matematica&quot;]'))">
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaMatematica('mat-videos', this)">
       <span class="material-symbols-outlined subject-icon">play_circle</span>
       <strong>Vídeos</strong>
       <span>Videoaulas para complementar a revisão.</span>
     </button>
+  </div>
+  <div id="mat-conteudo" class="hist-content-shell">
+    <div class="card" id="mat-placeholder">
+      <p>Selecione uma aba acima para abrir o conteúdo de Matemática.</p>
+    </div>
   </div>
 </section>
 
@@ -539,117 +549,119 @@
 
 <section id="quimica" class="secao">
   <h2><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">science</span><span>Química</span></span></h2>
-  <p class="intro-copy">Química orgânica com foco em cadeias carbônicas, classificação, leitura estrutural e prática de vestibular.</p>
+  <p class="intro-copy">Química orgânica com foco em cadeias carbônicas, classificação, exemplos, exercícios e revisão final.</p>
   <div class="topic-grid hist-tabs">
-    <button class="topic-card hist-tab-card" onclick="mostrarAbaQuimica('quim-visao-geral', this)">
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaQuimica('quim-resumo', this)">
       <span class="material-symbols-outlined subject-icon">lightbulb</span>
       <strong>Resumo</strong>
-      <span>Visão rápida do tema, classificações e ideia central.</span>
+      <span>Visão rápida da estrutura das cadeias carbônicas.</span>
     </button>
-    <button class="topic-card hist-tab-card" onclick="mostrarAbaQuimica('quim-teoria', this)">
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaQuimica('quim-explicacao', this)">
       <span class="material-symbols-outlined subject-icon">school</span>
       <strong>Explicação</strong>
-      <span>Modo professor com todas as classificações cobradas.</span>
+      <span>Classificações completas com leitura estrutural.</span>
     </button>
     <button class="topic-card hist-tab-card" onclick="mostrarAbaQuimica('quim-conceitos', this)">
       <span class="material-symbols-outlined subject-icon">table_chart</span>
       <strong>Conceitos</strong>
-      <span>Tabela-resumo para consulta rápida e comparação.</span>
+      <span>Tabela-resumo para consulta rápida.</span>
     </button>
     <button class="topic-card hist-tab-card" onclick="mostrarAbaQuimica('quim-exemplos', this)">
       <span class="material-symbols-outlined subject-icon">biotech</span>
       <strong>Exemplos</strong>
-      <span>Classificações comentadas passo a passo.</span>
+      <span>Problemas resolvidos passo a passo.</span>
     </button>
     <button class="topic-card hist-tab-card" onclick="mostrarAbaQuimica('quim-exercicios', this)">
       <span class="material-symbols-outlined subject-icon">assignment</span>
       <strong>Exercícios</strong>
-      <span>Questões para praticar antes de abrir o gabarito.</span>
+      <span>Questões para praticar antes do gabarito.</span>
+    </button>
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaQuimica('quim-gabarito', this)">
+      <span class="material-symbols-outlined subject-icon">check_circle</span>
+      <strong>Gabarito</strong>
+      <span>Respostas comentadas das questões.</span>
     </button>
     <button class="topic-card hist-tab-card" onclick="mostrarAbaQuimica('quim-revisao', this)">
       <span class="material-symbols-outlined subject-icon">auto_stories</span>
-      <strong>Revisão Final</strong>
+      <strong>Revisão</strong>
       <span>Dicas, mapa mental e pontos que mais caem.</span>
     </button>
   </div>
 
   <div id="quim-conteudo" class="hist-content-shell">
     <div class="card" id="quim-placeholder">
-      <p>Selecione uma aba acima para abrir o material de cadeias carbônicas organizado por bloco.</p>
+      <p>Selecione uma aba acima para abrir o conteúdo de Química.</p>
     </div>
 
-    <div id="quim-visao-geral" class="chem-pane">
+    <div id="quim-resumo" class="chem-pane">
       <h3>1. Resumo simples</h3>
       <div class="card card-verde">
-        <p>Cadeia carbônica é a espinha dorsal de uma molécula orgânica. Ela mostra como os átomos de carbono estão ligados entre si.</p>
-        <p>Pense no carbono como peça de montar: ele consegue se ligar a outros carbonos e formar linhas abertas, anéis e estruturas com galhos laterais.</p>
+        <p>Cadeia carbônica é a estrutura formada pelos átomos de carbono dentro de uma molécula orgânica.</p>
+        <p>Pense nela como o esqueleto da substância. O que muda de uma molécula para outra é se esse esqueleto é aberto ou fechado, se tem ramificações, se possui só ligações simples ou também duplas e triplas, e se existe algum átomo diferente de carbono no meio da cadeia.</p>
       </div>
       <div class="topic-grid historia-grid">
         <article class="topic-card historia-card">
-          <strong>Classificações principais</strong>
-          <span>forma: aberta, fechada ou mista</span>
-          <span>ramificação: normal ou ramificada</span>
-          <span>tipo de ligação: saturada ou insaturada</span>
-          <span>composição: homogênea ou heterogênea</span>
-          <span>aromaticidade: aromática ou não aromática</span>
+          <strong>O que essas classificações mostram</strong>
+          <span>o tipo de substância</span>
+          <span>o nome da molécula</span>
+          <span>o comportamento químico dela</span>
         </article>
         <article class="topic-card historia-card">
-          <strong>Por que isso importa</strong>
-          <span>ajuda a identificar a molécula</span>
-          <span>facilita a nomenclatura</span>
-          <span>permite prever propriedades químicas</span>
-          <span>cai muito em vestibulares e provas escolares</span>
+          <strong>O que observar primeiro</strong>
+          <span>se a cadeia é aberta ou fechada</span>
+          <span>se ela é normal ou ramificada</span>
+          <span>se é saturada ou insaturada</span>
+          <span>se é homogênea ou heterogênea</span>
         </article>
       </div>
     </div>
 
-    <div id="quim-teoria" class="chem-pane">
+    <div id="quim-explicacao" class="chem-pane">
       <h3>2. Explicação completa</h3>
       <div class="card">
-        <p>O carbono é tetravalente, ou seja, pode fazer até 4 ligações covalentes. Isso permite a formação de cadeias muito variadas e sustenta boa parte da Química Orgânica.</p>
+        <p>Na Química Orgânica, o carbono é o elemento central porque consegue fazer 4 ligações. Isso permite formar estruturas muito variadas: linhas, anéis, ramificações e redes maiores.</p>
+        <p>Por isso, quando estudamos uma molécula orgânica, uma das primeiras coisas é observar como os carbonos estão organizados.</p>
       </div>
+
       <div class="topic-grid historia-grid">
         <article class="topic-card historia-card">
-          <strong>Quanto à forma</strong>
-          <span><strong>Aberta:</strong> tem extremidades livres e não forma anel.</span>
-          <span><strong>Fechada:</strong> os carbonos formam um ciclo.</span>
-          <span><strong>Mista:</strong> combina uma parte aberta com uma parte fechada.</span>
+          <strong>A. Quanto à forma</strong>
+          <span><strong>Cadeia aberta:</strong> não forma ciclo, tem começo e fim. Exemplo: butano.</span>
+          <span><strong>Cadeia fechada:</strong> forma um ciclo, sem extremidades livres. Exemplo: ciclohexano.</span>
+          <span><strong>Cadeia mista:</strong> apresenta ao mesmo tempo uma parte cíclica e uma parte aberta.</span>
         </article>
         <article class="topic-card historia-card">
-          <strong>Quanto à ramificação</strong>
-          <span><strong>Normal ou linear:</strong> sem galhos laterais.</span>
-          <span><strong>Ramificada:</strong> apresenta um ou mais grupos saindo da cadeia principal.</span>
-          <span>Nessas cadeias podem aparecer carbonos terciários e quaternários.</span>
+          <strong>B. Quanto à ramificação</strong>
+          <span><strong>Cadeia normal:</strong> não apresenta galhos laterais. Exemplo: butano.</span>
+          <span><strong>Cadeia ramificada:</strong> possui pelo menos um galho saindo da cadeia principal. Exemplo: isobutano.</span>
         </article>
         <article class="topic-card historia-card">
-          <strong>Quanto ao tipo de ligação</strong>
-          <span><strong>Saturada:</strong> só tem ligações simples entre carbonos.</span>
-          <span><strong>Insaturada:</strong> possui pelo menos uma dupla ou tripla entre carbonos.</span>
-          <span>Atenção: a análise é feita nas ligações <strong>entre carbonos</strong>.</span>
+          <strong>C. Quanto ao tipo de ligação</strong>
+          <span><strong>Cadeia saturada:</strong> possui apenas ligações simples entre carbonos.</span>
+          <span><strong>Cadeia insaturada:</strong> possui pelo menos uma ligação dupla ou tripla entre carbonos. Exemplo: propeno.</span>
+          <span>Atenção: a análise é feita nas ligações entre carbonos, não entre carbono e oxigênio.</span>
         </article>
         <article class="topic-card historia-card">
-          <strong>Quanto à composição</strong>
-          <span><strong>Homogênea:</strong> sem heteroátomo entre carbonos.</span>
-          <span><strong>Heterogênea:</strong> com O, N, S ou outro heteroátomo inserido entre carbonos.</span>
-          <span>Se o heteroátomo estiver fora da sequência carbônica, a cadeia não vira heterogênea.</span>
+          <strong>D. Quanto à composição</strong>
+          <span><strong>Cadeia homogênea:</strong> não possui heteroátomo entre carbonos da cadeia.</span>
+          <span><strong>Cadeia heterogênea:</strong> possui heteroátomo inserido entre carbonos. Exemplo: dimetil éter.</span>
         </article>
         <article class="topic-card historia-card">
-          <strong>Quanto à aromaticidade</strong>
-          <span><strong>Aromática:</strong> possui anel aromático, como o benzeno.</span>
-          <span>Pode ser mononuclear ou polinuclear.</span>
-          <span>Quando é fechada e não aromática, costuma ser chamada de alicíclica.</span>
+          <strong>E. Quanto à aromaticidade</strong>
+          <span><strong>Cadeia aromática:</strong> possui anel aromático, como o benzeno.</span>
+          <span><strong>Cadeia não aromática:</strong> não possui anel aromático. Se for fechada e não aromática, costuma ser chamada de alicíclica.</span>
         </article>
         <article class="topic-card historia-card">
-          <strong>Classificação dos carbonos</strong>
-          <span><strong>Primário:</strong> ligado a 1 carbono.</span>
-          <span><strong>Secundário:</strong> ligado a 2 carbonos.</span>
-          <span><strong>Terciário:</strong> ligado a 3 carbonos.</span>
-          <span><strong>Quaternário:</strong> ligado a 4 carbonos.</span>
+          <strong>F. Classificação dos carbonos</strong>
+          <span>primário: ligado a 1 carbono</span>
+          <span>secundário: ligado a 2 carbonos</span>
+          <span>terciário: ligado a 3 carbonos</span>
+          <span>quaternário: ligado a 4 carbonos</span>
         </article>
       </div>
+
       <div class="card card-azul">
-        <p><strong>Relação com nomenclatura:</strong> a quantidade de carbonos aparece em prefixos como met-, et-, prop-, but-, pent-, hex-, hept-, oct-, non- e dec-.</p>
-        <p>Exemplos: <strong>propano</strong> tem 3 carbonos e é saturado; <strong>propeno</strong> tem 3 carbonos e uma dupla ligação.</p>
+        <p><strong>Exemplo no isobutano:</strong> os carbonos das extremidades são primários e o carbono central é terciário.</p>
       </div>
     </div>
 
@@ -665,20 +677,20 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>Cadeia aberta</td><td>Não forma ciclo</td><td>CH3-CH2-CH3</td></tr>
+            <tr><td>Cadeia aberta</td><td>Não forma ciclo</td><td>butano</td></tr>
             <tr><td>Cadeia fechada</td><td>Forma anel</td><td>ciclohexano</td></tr>
-            <tr><td>Cadeia mista</td><td>Tem parte aberta e parte fechada</td><td>anel com ramificação aberta</td></tr>
+            <tr><td>Cadeia mista</td><td>Tem parte aberta e parte fechada</td><td>anel com ramificação</td></tr>
             <tr><td>Normal</td><td>Sem ramificações</td><td>butano</td></tr>
             <tr><td>Ramificada</td><td>Com galhos laterais</td><td>isobutano</td></tr>
-            <tr><td>Saturada</td><td>Só ligações simples C-C</td><td>etano</td></tr>
-            <tr><td>Insaturada</td><td>Tem dupla ou tripla C-C</td><td>eteno, etino</td></tr>
-            <tr><td>Homogênea</td><td>Sem heteroátomo entre carbonos</td><td>propano</td></tr>
-            <tr><td>Heterogênea</td><td>Com heteroátomo entre carbonos</td><td>CH3-O-CH3</td></tr>
+            <tr><td>Saturada</td><td>Só ligações simples entre carbonos</td><td>butano</td></tr>
+            <tr><td>Insaturada</td><td>Tem dupla ou tripla entre carbonos</td><td>propeno</td></tr>
+            <tr><td>Homogênea</td><td>Sem heteroátomo entre carbonos</td><td>butano</td></tr>
+            <tr><td>Heterogênea</td><td>Com heteroátomo na cadeia</td><td>dimetil éter</td></tr>
             <tr><td>Aromática</td><td>Possui anel aromático</td><td>benzeno</td></tr>
-            <tr><td>Carbono primário</td><td>Ligado a 1 carbono</td><td>carbono da ponta</td></tr>
-            <tr><td>Carbono secundário</td><td>Ligado a 2 carbonos</td><td>carbono do meio</td></tr>
-            <tr><td>Carbono terciário</td><td>Ligado a 3 carbonos</td><td>centro de ramificação</td></tr>
-            <tr><td>Carbono quaternário</td><td>Ligado a 4 carbonos</td><td>carbono central muito ramificado</td></tr>
+            <tr><td>Primário</td><td>Carbono ligado a 1 carbono</td><td>carbono da ponta</td></tr>
+            <tr><td>Secundário</td><td>Ligado a 2 carbonos</td><td>carbono do meio</td></tr>
+            <tr><td>Terciário</td><td>Ligado a 3 carbonos</td><td>centro do isobutano</td></tr>
+            <tr><td>Quaternário</td><td>Ligado a 4 carbonos</td><td>carbono central em moléculas mais ramificadas</td></tr>
           </tbody>
         </table>
       </div>
@@ -689,122 +701,140 @@
       <div class="topic-grid historia-grid">
         <article class="topic-card historia-card">
           <strong>Problema 1: CH3-CH2-CH2-CH3</strong>
-          <span>não forma ciclo: aberta</span>
-          <span>não tem ramificação: normal</span>
-          <span>só tem ligações simples: saturada</span>
-          <span>não tem heteroátomo entre carbonos: homogênea</span>
+          <span>não forma ciclo, então é aberta</span>
+          <span>não tem galhos, então é normal</span>
+          <span>só tem ligações simples C-C, então é saturada</span>
+          <span>não há heteroátomo entre carbonos, então é homogênea</span>
           <span><strong>Resposta final:</strong> aberta, normal, saturada e homogênea.</span>
         </article>
         <article class="topic-card historia-card">
-          <strong>Problema 2: CH3-CH=CH-CH3</strong>
-          <span>cadeia aberta</span>
-          <span>sem ramificação</span>
-          <span>possui ligação dupla entre carbonos</span>
-          <span>sem heteroátomo na cadeia</span>
+          <strong>Problema 2: CH2=CH-CH3</strong>
+          <span>não forma ciclo, então é aberta</span>
+          <span>não tem ramificação, então é normal</span>
+          <span>possui ligação dupla entre carbonos, então é insaturada</span>
+          <span>não tem heteroátomo na cadeia, então é homogênea</span>
           <span><strong>Resposta final:</strong> aberta, normal, insaturada e homogênea.</span>
         </article>
         <article class="topic-card historia-card">
-          <strong>Problema 3: CH3-O-CH2-CH3</strong>
-          <span>não forma anel: aberta</span>
-          <span>sem ramificação relevante: normal</span>
-          <span>entre carbonos só há ligações simples</span>
-          <span>há oxigênio entre dois carbonos</span>
+          <strong>Problema 3: CH3-O-CH3</strong>
+          <span>não forma ciclo, então é aberta</span>
+          <span>não possui ramificação relevante, então é normal</span>
+          <span>só tem ligações simples entre carbonos</span>
+          <span>há oxigênio entre dois carbonos, então é heterogênea</span>
           <span><strong>Resposta final:</strong> aberta, normal, saturada e heterogênea.</span>
         </article>
         <article class="topic-card historia-card">
           <strong>Problema 4: benzeno</strong>
-          <span>forma ciclo</span>
-          <span>possui anel aromático</span>
-          <span>todos os átomos do anel são carbonos</span>
-          <span><strong>Resposta final:</strong> fechada, aromática, homogênea e insaturada no sentido estrutural do anel.</span>
+          <span>forma um ciclo, então é fechada</span>
+          <span>possui anel aromático, então é aromática</span>
+          <span>não há heteroátomo no anel, então é homogênea</span>
+          <span><strong>Resposta final:</strong> fechada, aromática e homogênea.</span>
         </article>
       </div>
     </div>
 
     <div id="quim-exercicios" class="chem-pane">
       <h3>5. Exercícios para praticar</h3>
-      <p style="color:var(--cinza); margin-bottom:1.5rem;">Tente resolver sozinho antes de abrir o gabarito.</p>
+      <p style="color:var(--cinza); margin-bottom:1.5rem;">Tente resolver antes de abrir o gabarito.</p>
+      <div class="card">
+        <p>1. Classifique a cadeia CH3-CH2-CH3 quanto à forma, ramificação, saturação e composição.</p>
+        <p>2. A cadeia CH2=CH-CH3 é:</p>
+        <p>A) fechada, saturada, homogênea</p>
+        <p>B) aberta, insaturada, homogênea</p>
+        <p>C) aberta, saturada, heterogênea</p>
+        <p>D) fechada, insaturada, heterogênea</p>
+        <p>3. A presença de um oxigênio entre dois carbonos torna a cadeia:</p>
+        <p>A) aromática</p>
+        <p>B) ramificada</p>
+        <p>C) heterogênea</p>
+        <p>D) homogênea</p>
+        <p>4. A molécula de isobutano apresenta cadeia:</p>
+        <p>A) normal</p>
+        <p>B) ramificada</p>
+        <p>C) aromática</p>
+        <p>D) heterogênea</p>
+        <p>5. Classifique o benzeno quanto à forma e aromaticidade.</p>
+        <p>6. Quantos carbonos secundários existem em CH3-CH2-CH2-CH3?</p>
+        <p>7. A cadeia CH3-CH(CH3)-CH3 é normal ou ramificada? Justifique.</p>
+        <p>8. Classifique CH3-CH2-O-CH2-CH3.</p>
+        <p>9. O ciclohexano é aromático ou não aromático? Justifique.</p>
+        <p>10. Dê um exemplo de cadeia aberta e insaturada, fechada e não aromática, e aberta e heterogênea.</p>
+      </div>
+    </div>
 
+    <div id="quim-gabarito" class="chem-pane">
+      <h3>6. Gabarito explicado</h3>
       <div class="questao">
         <div class="num">1</div>
-        <div class="enunciado">Classifique a cadeia CH3-CH2-CH3 quanto à forma, ramificação, saturação e composição.</div>
-        <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
-        <div class="gabarito-box">Aberta, normal, saturada e homogênea.</div>
+        <div class="enunciado">CH3-CH2-CH3</div>
+        <div class="gabarito-box visivel">Aberta, normal, saturada e homogênea. Não forma anel, não tem ramificação, só possui ligações simples e não há heteroátomo entre carbonos.</div>
       </div>
-
       <div class="questao">
         <div class="num">2</div>
-        <div class="enunciado">A cadeia CH2=CH-CH3 é: A) fechada, saturada, homogênea B) aberta, insaturada, homogênea C) aberta, saturada, heterogênea D) fechada, insaturada, heterogênea</div>
-        <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
-        <div class="gabarito-box"><strong>B.</strong> Aberta, insaturada e homogênea.</div>
+        <div class="enunciado">CH2=CH-CH3</div>
+        <div class="gabarito-box visivel"><strong>B.</strong> A cadeia é aberta, possui dupla ligação entre carbonos e não tem heteroátomo na cadeia.</div>
       </div>
-
       <div class="questao">
         <div class="num">3</div>
-        <div class="enunciado">A presença de um oxigênio entre dois carbonos torna a cadeia: A) aromática B) ramificada C) heterogênea D) saturada</div>
-        <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
-        <div class="gabarito-box"><strong>C.</strong> Heterogênea.</div>
+        <div class="enunciado">Oxigênio entre dois carbonos</div>
+        <div class="gabarito-box visivel"><strong>C.</strong> Quando um átomo como O, N ou S aparece entre carbonos da cadeia, ela se torna heterogênea.</div>
       </div>
-
       <div class="questao">
         <div class="num">4</div>
-        <div class="enunciado">Em uma cadeia ramificada, espera-se encontrar: A) apenas carbonos primários B) apenas carbonos secundários C) carbonos terciários e/ou quaternários D) ausência de extremidades</div>
-        <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
-        <div class="gabarito-box"><strong>C.</strong> Carbonos terciários e/ou quaternários.</div>
+        <div class="enunciado">Isobutano</div>
+        <div class="gabarito-box visivel"><strong>B.</strong> O isobutano tem um galho lateral, então sua cadeia é ramificada.</div>
       </div>
-
       <div class="questao">
         <div class="num">5</div>
-        <div class="enunciado">Classifique o benzeno quanto à forma e aromaticidade.</div>
-        <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
-        <div class="gabarito-box">Fechada e aromática.</div>
+        <div class="enunciado">Benzeno</div>
+        <div class="gabarito-box visivel">Fechada e aromática. Ele forma um anel com caráter aromático.</div>
       </div>
-
       <div class="questao">
         <div class="num">6</div>
-        <div class="enunciado">Quantos carbonos secundários existem em CH3-CH2-CH2-CH3?</div>
-        <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
-        <div class="gabarito-box">2 carbonos secundários.</div>
+        <div class="enunciado">CH3-CH2-CH2-CH3</div>
+        <div class="gabarito-box visivel">2 carbonos secundários. No butano, os dois carbonos centrais estão ligados a dois outros carbonos.</div>
       </div>
-
       <div class="questao">
         <div class="num">7</div>
-        <div class="enunciado">A cadeia CH3-CH(CH3)-CH3 é normal ou ramificada? Justifique.</div>
-        <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
-        <div class="gabarito-box">Ramificada, porque o grupo CH3 lateral funciona como ramificação.</div>
+        <div class="enunciado">CH3-CH(CH3)-CH3</div>
+        <div class="gabarito-box visivel">Ramificada. Há um grupo CH3 saindo da sequência principal.</div>
       </div>
-
       <div class="questao">
         <div class="num">8</div>
-        <div class="enunciado">Monte a classificação completa de CH3-CH2-O-CH2-CH3.</div>
-        <button class="gabarito-btn" onclick="mostrarBox(this,'gabarito')"><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">check_circle</span><span>Gabarito</span></span></button>
-        <div class="gabarito-box">Aberta, normal, saturada e heterogênea.</div>
+        <div class="enunciado">CH3-CH2-O-CH2-CH3</div>
+        <div class="gabarito-box visivel">Aberta, normal, saturada e heterogênea. É aberta, sem ramificação, só com ligações simples entre carbonos e possui oxigênio entre carbonos.</div>
+      </div>
+      <div class="questao">
+        <div class="num">9</div>
+        <div class="enunciado">Ciclohexano</div>
+        <div class="gabarito-box visivel">Não aromático. Apesar de ser fechado, o ciclohexano não possui sistema aromático.</div>
+      </div>
+      <div class="questao">
+        <div class="num">10</div>
+        <div class="enunciado">Exemplos possíveis</div>
+        <div class="gabarito-box visivel">Aberta e insaturada: propeno. Fechada e não aromática: ciclohexano. Aberta e heterogênea: dimetil éter.</div>
       </div>
     </div>
 
     <div id="quim-revisao" class="chem-pane">
-      <h3>6. Revisão final</h3>
+      <h3>7. Revisão final</h3>
       <div class="topic-grid historia-grid">
         <article class="topic-card historia-card">
           <strong>Dicas para aprender mais rápido</strong>
-          <span>comece sempre por 4 perguntas: forma, ramificação, saturação e composição</span>
-          <span>heteroátomo só conta se estiver entre carbonos</span>
-          <span>dupla com oxigênio não torna a cadeia insaturada neste critério</span>
-          <span>ramificação quase sempre sugere carbono terciário ou quaternário</span>
-          <span>desenhar a cadeia evita erro de classificação</span>
+          <span>classifique nesta ordem: forma, ramificação, saturação, composição e aromaticidade</span>
+          <span>pergunte primeiro se a cadeia fecha ou não fecha</span>
+          <span>heteroátomo só conta se estiver no meio da cadeia</span>
+          <span>ligação dupla com oxigênio não basta para chamar a cadeia de insaturada</span>
+          <span>compare butano x isobutano, butano x propeno e ciclohexano x benzeno</span>
         </article>
         <article class="topic-card historia-card">
-          <strong>Prefixos que mais aparecem</strong>
-          <span>1: met-</span>
-          <span>2: et-</span>
-          <span>3: prop-</span>
-          <span>4: but-</span>
-          <span>5: pent-</span>
-          <span>6: hex-</span>
-          <span>7: hept-</span>
-          <span>8: oct-</span>
-          <span>9: non-</span>
-          <span>10: dec-</span>
+          <strong>Mini revisão final</strong>
+          <span>butano: aberta, normal, saturada e homogênea</span>
+          <span>propeno: aberta e insaturada</span>
+          <span>dimetil éter: aberta e heterogênea</span>
+          <span>ciclohexano: fechada e não aromática</span>
+          <span>benzeno: fechada e aromática</span>
+          <span>isobutano: ramificada</span>
         </article>
       </div>
 
@@ -834,25 +864,19 @@
     |-- Nao aromatica</pre>
       </div>
 
-      <div class="topic-grid historia-grid">
-        <article class="topic-card historia-card">
-          <strong>Esquema visual</strong>
-          <span><strong>Aberta:</strong> C-C-C-C</span>
-          <span><strong>Fechada:</strong> forma ciclo</span>
-          <span><strong>Mista:</strong> C-C-(anel)</span>
-          <span><strong>Ramificada:</strong> C-C-C com um carbono lateral</span>
-        </article>
-        <article class="topic-card historia-card">
-          <strong>Mini revisão final</strong>
-          <span>aberta = tem extremidades</span>
-          <span>fechada = forma ciclo</span>
-          <span>saturada = só simples entre carbonos</span>
-          <span>insaturada = dupla ou tripla entre carbonos</span>
-          <span>homogênea = sem heteroátomo entre carbonos</span>
-          <span>heterogênea = com heteroátomo entre carbonos</span>
-          <span>ramificada = tem galhos</span>
-          <span>aromática = tem anel aromático</span>
-        </article>
+      <div class="card">
+        <p><strong>Quadro visual de comparação:</strong></p>
+        <p>cadeia aberta, normal e saturada: butano</p>
+        <p>cadeia aberta e insaturada: propeno</p>
+        <p>cadeia aberta e heterogênea: dimetil éter</p>
+        <p>cadeia fechada não aromática: ciclohexano</p>
+        <p>cadeia ramificada: isobutano</p>
+        <p>cadeia aromática: benzeno</p>
+      </div>
+
+      <div class="card card-azul">
+        <p><strong>Fontes visuais citadas no material:</strong></p>
+        <p>Butano, isobutano, propeno, dimetil éter, ciclohexano e benzeno foram referenciados a partir de arquivos do Wikimedia Commons descritos no seu material.</p>
       </div>
     </div>
   </div>
@@ -860,14 +884,315 @@
 
 <section id="fisica" class="secao">
   <h2><span class="icon-wrap"><span class="material-symbols-outlined ui-icon">bolt</span><span>Física</span></span></h2>
-  <p class="intro-copy">Estrutura preparada para mecânica, eletricidade, óptica e demais áreas da física.</p>
-  <div class="topic-grid">
-    <article class="topic-card historia-card"><strong>Vocabulário</strong><span>Conceitos-base, grandezas e unidades importantes.</span></article>
-    <article class="topic-card historia-card"><strong>1 Conteúdo</strong><span>Primeiro bloco principal da disciplina.</span></article>
-    <article class="topic-card historia-card"><strong>2 Conteúdo</strong><span>Segundo bloco principal da disciplina.</span></article>
-    <article class="topic-card historia-card"><strong>Extras</strong><span>Revisões rápidas, observações e macetes.</span></article>
-    <article class="topic-card historia-card"><strong>Exercícios</strong><span>Questões e resolução prática.</span></article>
-    <article class="topic-card historia-card"><strong>Vídeos</strong><span>Bloco reservado para videoaulas.</span></article>
+  <p class="intro-copy">Eletricidade com foco em eletrostática, Lei de Coulomb, campo elétrico, resistência, resistividade e vocabulário-base.</p>
+  <div class="topic-grid hist-tabs">
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaFisica('fis-resumo', this)">
+      <span class="material-symbols-outlined subject-icon">lightbulb</span>
+      <strong>Resumo</strong>
+      <span>Visão rápida dos conceitos centrais de eletricidade.</span>
+    </button>
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaFisica('fis-explicacao', this)">
+      <span class="material-symbols-outlined subject-icon">school</span>
+      <strong>Explicação</strong>
+      <span>Eletrostática, campo elétrico, resistência e resistividade.</span>
+    </button>
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaFisica('fis-vocabulario', this)">
+      <span class="material-symbols-outlined subject-icon">menu_book</span>
+      <strong>Vocabulário</strong>
+      <span>Palavras difíceis organizadas para revisão rápida.</span>
+    </button>
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaFisica('fis-conceitos', this)">
+      <span class="material-symbols-outlined subject-icon">table_chart</span>
+      <strong>Conceitos</strong>
+      <span>Tabela-resumo com definições e exemplos.</span>
+    </button>
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaFisica('fis-exemplos', this)">
+      <span class="material-symbols-outlined subject-icon">calculate</span>
+      <strong>Exemplos</strong>
+      <span>Problemas resolvidos passo a passo.</span>
+    </button>
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaFisica('fis-exercicios', this)">
+      <span class="material-symbols-outlined subject-icon">assignment</span>
+      <strong>Exercícios</strong>
+      <span>Questões para praticar e testar compreensão.</span>
+    </button>
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaFisica('fis-gabarito', this)">
+      <span class="material-symbols-outlined subject-icon">check_circle</span>
+      <strong>Gabarito</strong>
+      <span>Respostas explicadas e comentadas.</span>
+    </button>
+    <button class="topic-card hist-tab-card" onclick="mostrarAbaFisica('fis-revisao', this)">
+      <span class="material-symbols-outlined subject-icon">auto_stories</span>
+      <strong>Revisão</strong>
+      <span>Dicas, fórmulas e mini revisão final.</span>
+    </button>
+  </div>
+  <div id="fis-conteudo" class="hist-content-shell">
+    <div class="card" id="fis-placeholder">
+      <p>Selecione uma aba acima para abrir o conteúdo de Física.</p>
+    </div>
+
+    <div id="fis-resumo" class="fis-pane">
+      <h3>1. Resumo simples</h3>
+      <div class="card card-verde">
+        <p>Eletrostática é a parte da Física que estuda as cargas elétricas em repouso.</p>
+        <p>A partir dela, entendemos como cargas se atraem ou se repelem, como surge o campo elétrico e como materiais dificultam a passagem da corrente elétrica.</p>
+      </div>
+      <div class="topic-grid historia-grid">
+        <article class="topic-card historia-card">
+          <strong>Ideia central</strong>
+          <span>cargas iguais se repelem</span>
+          <span>cargas opostas se atraem</span>
+          <span>toda carga cria um campo elétrico ao seu redor</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>Corrente e materiais</strong>
+          <span>a corrente elétrica encontra resistência ao passar pelos materiais</span>
+          <span>a resistividade mostra o quanto o material dificulta essa passagem</span>
+        </article>
+      </div>
+    </div>
+
+    <div id="fis-explicacao" class="fis-pane">
+      <h3>2. Explicação completa</h3>
+      <div class="topic-grid historia-grid">
+        <article class="topic-card historia-card">
+          <strong>A. Eletrostática</strong>
+          <span>estuda as cargas elétricas em repouso</span>
+          <span>as cargas podem ser positivas ou negativas</span>
+          <span>cargas iguais se repelem e diferentes se atraem</span>
+          <span>em um sistema isolado, a quantidade total de carga permanece constante</span>
+          <span>exemplo: pente eletrizado atraindo pedacinhos de papel</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>B. Interação entre cargas</strong>
+          <span>a força elétrica entre cargas é calculada pela Lei de Coulomb</span>
+          <span class="formula">F = k . (|Q1| . |Q2|) / d²</span>
+          <span>quanto maior a distância, menor a força</span>
+          <span>quanto maiores as cargas, maior a força</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>C. Campo elétrico</strong>
+          <span>toda carga cria uma região ao redor chamada campo elétrico</span>
+          <span class="formula">E = F / q</span>
+          <span class="formula">E = k . |Q| / r²</span>
+          <span>o campo sai da carga positiva e entra na carga negativa</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>D. Resistência elétrica</strong>
+          <span>é a dificuldade que um corpo oferece à passagem da corrente</span>
+          <span class="formula">R = U / i</span>
+          <span class="formula">U = R . i</span>
+          <span>maior resistência significa menor facilidade para a corrente passar</span>
+          <span>parte da energia elétrica pode virar calor</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>E. Resistividade elétrica</strong>
+          <span>é uma propriedade do material</span>
+          <span class="formula">R = p . L / A</span>
+          <span class="formula">p = R . A / L</span>
+          <span>fio mais comprido aumenta a resistência</span>
+          <span>fio mais grosso diminui a resistência</span>
+        </article>
+      </div>
+      <div class="card card-azul">
+        <p><strong>Sentido do campo:</strong> no positivo, as linhas saem; no negativo, as linhas entram.</p>
+        <pre class="chem-diagram">Carga positiva:         Carga negativa:
+
+      ↑                      ↓
+   ↗  |  ↖                ↘  |  ↙
+<---- + ---->            >--- - ---<
+   ↘  |  ↙                ↗  |  ↖
+      ↓                      ↑</pre>
+      </div>
+    </div>
+
+    <div id="fis-vocabulario" class="fis-pane">
+      <h3>3. Vocabulário</h3>
+      <div class="vocab-grid">
+        <div class="vocab-item" onclick="toggle(this)"><div class="termo">Eletrostática</div><div class="def">Parte da Física que estuda as cargas elétricas em repouso.</div><span class="hint">toque para ver ▸</span></div>
+        <div class="vocab-item" onclick="toggle(this)"><div class="termo">Carga elétrica</div><div class="def">Propriedade física responsável pelas interações elétricas. Pode ser positiva ou negativa.</div><span class="hint">toque para ver ▸</span></div>
+        <div class="vocab-item" onclick="toggle(this)"><div class="termo">Eletrização</div><div class="def">Processo em que um corpo ganha ou perde elétrons e fica carregado.</div><span class="hint">toque para ver ▸</span></div>
+        <div class="vocab-item" onclick="toggle(this)"><div class="termo">Repulsão</div><div class="def">Afastamento entre cargas de mesmo sinal.</div><span class="hint">toque para ver ▸</span></div>
+        <div class="vocab-item" onclick="toggle(this)"><div class="termo">Atração</div><div class="def">Aproximação entre cargas de sinais opostos.</div><span class="hint">toque para ver ▸</span></div>
+        <div class="vocab-item" onclick="toggle(this)"><div class="termo">Lei de Coulomb</div><div class="def">Lei que permite calcular a força elétrica entre duas cargas.</div><span class="hint">toque para ver ▸</span></div>
+        <div class="vocab-item" onclick="toggle(this)"><div class="termo">Campo elétrico</div><div class="def">Região ao redor de uma carga onde outra carga pode sofrer força elétrica.</div><span class="hint">toque para ver ▸</span></div>
+        <div class="vocab-item" onclick="toggle(this)"><div class="termo">Carga de prova</div><div class="def">Carga usada para analisar a intensidade e a direção do campo elétrico.</div><span class="hint">toque para ver ▸</span></div>
+        <div class="vocab-item" onclick="toggle(this)"><div class="termo">Intensidade</div><div class="def">Valor numérico de uma grandeza, como força, campo ou corrente.</div><span class="hint">toque para ver ▸</span></div>
+        <div class="vocab-item" onclick="toggle(this)"><div class="termo">Resistência elétrica</div><div class="def">Dificuldade que um corpo oferece à passagem da corrente elétrica.</div><span class="hint">toque para ver ▸</span></div>
+        <div class="vocab-item" onclick="toggle(this)"><div class="termo">Resistividade</div><div class="def">Característica do material que indica o quanto ele dificulta a corrente.</div><span class="hint">toque para ver ▸</span></div>
+        <div class="vocab-item" onclick="toggle(this)"><div class="termo">Diferença de potencial</div><div class="def">Energia por carga disponível para movimentar elétrons no circuito.</div><span class="hint">toque para ver ▸</span></div>
+        <div class="vocab-item" onclick="toggle(this)"><div class="termo">Corrente elétrica</div><div class="def">Movimento ordenado de cargas elétricas.</div><span class="hint">toque para ver ▸</span></div>
+        <div class="vocab-item" onclick="toggle(this)"><div class="termo">Condutor</div><div class="def">Material que permite a passagem da corrente com facilidade.</div><span class="hint">toque para ver ▸</span></div>
+        <div class="vocab-item" onclick="toggle(this)"><div class="termo">Isolante</div><div class="def">Material que dificulta muito a passagem da corrente.</div><span class="hint">toque para ver ▸</span></div>
+        <div class="vocab-item" onclick="toggle(this)"><div class="termo">Seção transversal</div><div class="def">Área do corte do fio, a espessura útil do condutor.</div><span class="hint">toque para ver ▸</span></div>
+        <div class="vocab-item" onclick="toggle(this)"><div class="termo">Efeito Joule</div><div class="def">Transformação de energia elétrica em calor.</div><span class="hint">toque para ver ▸</span></div>
+        <div class="vocab-item" onclick="toggle(this)"><div class="termo">Puntiforme</div><div class="def">Algo muito pequeno, tratado como se fosse um ponto.</div><span class="hint">toque para ver ▸</span></div>
+        <div class="vocab-item" onclick="toggle(this)"><div class="termo">Sistema isolado</div><div class="def">Sistema que não troca carga com o meio externo.</div><span class="hint">toque para ver ▸</span></div>
+      </div>
+    </div>
+
+    <div id="fis-conceitos" class="fis-pane">
+      <h3>4. Conceitos principais</h3>
+      <div class="card">
+        <table class="tabela-ratio chem-table">
+          <thead>
+            <tr>
+              <th>Conceito</th>
+              <th>Explicação curta</th>
+              <th>Exemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Eletrostática</td><td>Estuda cargas em repouso</td><td>pente eletrizado</td></tr>
+            <tr><td>Atração elétrica</td><td>Ocorre entre cargas opostas</td><td>+ e -</td></tr>
+            <tr><td>Repulsão elétrica</td><td>Ocorre entre cargas iguais</td><td>+ e +</td></tr>
+            <tr><td>Lei de Coulomb</td><td>Calcula a força entre cargas</td><td>duas esferas eletrizadas</td></tr>
+            <tr><td>Campo elétrico</td><td>Região onde uma carga sofre força</td><td>entorno de uma carga</td></tr>
+            <tr><td>Linhas de campo</td><td>Indicam direção e sentido do campo</td><td>saem do +, entram no -</td></tr>
+            <tr><td>Resistência elétrica</td><td>Dificuldade à passagem da corrente</td><td>resistor</td></tr>
+            <tr><td>Resistividade</td><td>Propriedade do material</td><td>cobre e borracha</td></tr>
+            <tr><td>Efeito Joule</td><td>Energia elétrica vira calor</td><td>chuveiro elétrico</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="fis-exemplos" class="fis-pane">
+      <h3>5. Exemplos práticos</h3>
+      <div class="topic-grid historia-grid">
+        <article class="topic-card historia-card">
+          <strong>Problema 1</strong>
+          <span>Duas cargas dobram de distância.</span>
+          <span>Pela Lei de Coulomb: F proporcional a 1 / d².</span>
+          <span>Se a distância dobra, F' = F / 4.</span>
+          <span><strong>Resposta final:</strong> a força fica 4 vezes menor.</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>Problema 2</strong>
+          <span>q = 2 C sofre força de 10 N.</span>
+          <span>E = F / q</span>
+          <span>E = 10 / 2 = 5</span>
+          <span><strong>Resposta final:</strong> E = 5 N/C.</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>Problema 3</strong>
+          <span>U = 120 V e i = 4 A.</span>
+          <span>R = U / i</span>
+          <span>R = 120 / 4 = 30</span>
+          <span><strong>Resposta final:</strong> R = 30 ohms.</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>Problema 4</strong>
+          <span>p = 2, L = 6 m e A = 3 m².</span>
+          <span>R = p . L / A</span>
+          <span>R = 2 . 6 / 3 = 4</span>
+          <span><strong>Resposta final:</strong> R = 4 ohms.</span>
+        </article>
+      </div>
+    </div>
+
+    <div id="fis-exercicios" class="fis-pane">
+      <h3>6. Exercícios para praticar</h3>
+      <div class="card">
+        <p>1. O que a eletrostática estuda?</p>
+        <p>A) cargas em movimento</p>
+        <p>B) cargas em repouso</p>
+        <p>C) apenas ímãs</p>
+        <p>D) apenas corrente alternada</p>
+        <p>2. Cargas elétricas de mesmo sinal:</p>
+        <p>A) se atraem</p>
+        <p>B) se anulam</p>
+        <p>C) se repelem</p>
+        <p>D) desaparecem</p>
+        <p>3. Pela Lei de Coulomb, se a distância entre duas cargas triplica, a força:</p>
+        <p>A) triplica</p>
+        <p>B) cai para 1/3</p>
+        <p>C) cai para 1/9</p>
+        <p>D) dobra</p>
+        <p>4. Calcule o campo elétrico sabendo que uma carga de prova de 5 C sofre força de 20 N.</p>
+        <p>5. Uma carga positiva gera um campo que aponta:</p>
+        <p>A) para dentro</p>
+        <p>B) para fora</p>
+        <p>C) em círculo</p>
+        <p>D) sem direção</p>
+        <p>6. Um resistor é submetido a 60 V e percorrido por corrente de 3 A. Calcule a resistência.</p>
+        <p>7. Um fio de mesmo material tem seu comprimento dobrado. O que acontece com a resistência?</p>
+        <p>A) diminui pela metade</p>
+        <p>B) dobra</p>
+        <p>C) não muda</p>
+        <p>D) zera</p>
+        <p>8. Um fio tem resistividade 1,5, comprimento 10 m e área 5 m². Calcule a resistência.</p>
+        <p>9. Explique com suas palavras a diferença entre resistência e resistividade.</p>
+        <p>10. Dê um exemplo de aparelho do cotidiano em que a resistência elétrica seja importante.</p>
+      </div>
+    </div>
+
+    <div id="fis-gabarito" class="fis-pane">
+      <h3>7. Gabarito explicado</h3>
+      <div class="questao"><div class="num">1</div><div class="enunciado">Eletrostática</div><div class="gabarito-box visivel"><strong>B.</strong> Eletrostática estuda cargas em repouso.</div></div>
+      <div class="questao"><div class="num">2</div><div class="enunciado">Cargas de mesmo sinal</div><div class="gabarito-box visivel"><strong>C.</strong> Cargas iguais se repelem.</div></div>
+      <div class="questao"><div class="num">3</div><div class="enunciado">Distância triplica</div><div class="gabarito-box visivel"><strong>C.</strong> Como a força depende de 1/d², triplicar a distância reduz a força para 1/9.</div></div>
+      <div class="questao"><div class="num">4</div><div class="enunciado">Campo elétrico</div><div class="gabarito-box visivel">E = F / q = 20 / 5 = 4 N/C. O campo é a força por unidade de carga.</div></div>
+      <div class="questao"><div class="num">5</div><div class="enunciado">Carga positiva</div><div class="gabarito-box visivel"><strong>B.</strong> O campo elétrico sai da carga positiva.</div></div>
+      <div class="questao"><div class="num">6</div><div class="enunciado">Resistência</div><div class="gabarito-box visivel">R = U / i = 60 / 3 = 20 ohms.</div></div>
+      <div class="questao"><div class="num">7</div><div class="enunciado">Comprimento dobrado</div><div class="gabarito-box visivel"><strong>B.</strong> A resistência é diretamente proporcional ao comprimento do fio.</div></div>
+      <div class="questao"><div class="num">8</div><div class="enunciado">Resistividade</div><div class="gabarito-box visivel">R = p . L / A = 1,5 . 10 / 5 = 3 ohms.</div></div>
+      <div class="questao"><div class="num">9</div><div class="enunciado">Diferença</div><div class="gabarito-box visivel">Resistência é a oposição que um corpo específico oferece à corrente. Resistividade é uma característica do material desse corpo.</div></div>
+      <div class="questao"><div class="num">10</div><div class="enunciado">Cotidiano</div><div class="gabarito-box visivel">Exemplos: chuveiro elétrico, ferro de passar e secador de cabelo.</div></div>
+    </div>
+
+    <div id="fis-revisao" class="fis-pane">
+      <h3>8. Revisão final</h3>
+      <div class="topic-grid historia-grid">
+        <article class="topic-card historia-card">
+          <strong>Dicas para aprender mais rápido</strong>
+          <span>memorize esta sequência: carga, força, campo, corrente e resistência</span>
+          <span>em eletrostática, igual repele e diferente atrai</span>
+          <span>na Lei de Coulomb e no campo elétrico, a distância aparece ao quadrado</span>
+          <span>resistência é do corpo; resistividade é do material</span>
+          <span>fio longo atrapalha mais a corrente e fio grosso facilita a passagem</span>
+        </article>
+        <article class="topic-card historia-card">
+          <strong>Mini revisão final</strong>
+          <span>eletrostática estuda cargas em repouso</span>
+          <span>cargas iguais se repelem</span>
+          <span>cargas opostas se atraem</span>
+          <span>a força elétrica diminui com o quadrado da distância</span>
+          <span>o campo sai do positivo e entra no negativo</span>
+          <span>resistência mede a dificuldade de passagem da corrente</span>
+          <span>resistividade é uma propriedade do material</span>
+        </article>
+      </div>
+      <div class="card card-amarelo">
+        <strong>Mapa mental simplificado</strong>
+        <pre class="chem-diagram">ELETRICIDADE
+|
+|-- Eletrostatica
+|   |-- Cargas em repouso
+|   |-- Atracao e repulsao
+|   |-- Lei de Coulomb
+|   |-- Campo eletrico
+|
+|-- Resistencia eletrica
+|   |-- R = U/i
+|   |-- oposicao a corrente
+|   |-- efeito Joule
+|
+|-- Resistividade
+    |-- depende do material
+    |-- R = p.L/A</pre>
+      </div>
+      <div class="card">
+        <p><strong>Quadro-resumo de fórmulas</strong></p>
+        <p>Força elétrica: F = k . (Q1 . Q2) / d²</p>
+        <p>Campo elétrico: E = F / q</p>
+        <p>Campo puntiforme: E = k . |Q| / r²</p>
+        <p>Resistência: R = U / i</p>
+        <p>2ª lei de Ohm: R = p . L / A</p>
+        <p>Resistividade: p = R . A / L</p>
+      </div>
+    </div>
   </div>
 </section>
 

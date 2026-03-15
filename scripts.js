@@ -302,8 +302,66 @@ function atualizarStatusMaterias() {
   });
 }
 
+/**
+ * Prepara abas internas movendo seções já existentes para dentro da matéria.
+ * @param {string} parentId - ID da matéria principal
+ * @param {string} shellId - ID do contêiner onde o conteúdo será renderizado
+ * @param {string[]} paneIds - IDs das seções a mover
+ * @param {string} paneClass - Classe CSS das abas internas
+ */
+function prepararAbasInternas(parentId, shellId, paneIds, paneClass) {
+  const parent = document.getElementById(parentId);
+  const shell = document.getElementById(shellId);
+  if (!parent || !shell) return;
+
+  paneIds.forEach((paneId) => {
+    const pane = document.getElementById(paneId);
+    if (!pane) return;
+
+    pane.classList.remove('secao', 'ativa');
+    pane.classList.add(paneClass);
+    shell.appendChild(pane);
+  });
+}
+
+/**
+ * Alterna abas internas de uma matéria.
+ * @param {string} sectionId - ID da matéria principal
+ * @param {string} paneId - ID da aba a abrir
+ * @param {HTMLElement} btn - Botão clicado
+ * @param {string} paneClass - Classe das abas internas
+ * @param {string} placeholderId - ID do placeholder inicial
+ * @param {string} shellId - ID do contêiner de conteúdo
+ */
+function mostrarAbaMateria(sectionId, paneId, btn, paneClass, placeholderId, shellId) {
+  const secao = document.getElementById(sectionId);
+  if (!secao) return;
+
+  secao.querySelectorAll('.' + paneClass).forEach((pane) => {
+    pane.classList.remove('ativa');
+  });
+
+  secao.querySelectorAll('.hist-tab-card').forEach((tab) => {
+    tab.classList.remove('ativa');
+  });
+
+  const destino = secao.querySelector('#' + paneId);
+  if (destino) destino.classList.add('ativa');
+  if (btn) btn.classList.add('ativa');
+
+  const placeholder = secao.querySelector('#' + placeholderId);
+  if (placeholder) placeholder.style.display = 'none';
+
+  const shell = secao.querySelector('#' + shellId);
+  if (shell) {
+    shell.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
 atualizarStatusMaterias();
 renderCalendario(2026, 'calendario-2026');
+prepararAbasInternas('biologia', 'bio-conteudo', ['vocabulario', '1lei', '2lei', 'especial', 'exercicios', 'videos'], 'bio-pane');
+prepararAbasInternas('matematica', 'mat-conteudo', ['mat-vocabulario', 'mat-1-conteudo', 'mat-2-conteudo', 'mat-extras', 'mat-exercicios', 'mat-videos'], 'mat-pane');
 
 /**
  * Alterna abas internas da seção de História.
@@ -341,26 +399,32 @@ function mostrarAbaHistoria(paneId, btn) {
  * @param {HTMLElement} btn - Botão da aba
  */
 function mostrarAbaQuimica(paneId, btn) {
-  const secao = document.getElementById('quimica');
-  if (!secao) return;
+  mostrarAbaMateria('quimica', paneId, btn, 'chem-pane', 'quim-placeholder', 'quim-conteudo');
+}
 
-  secao.querySelectorAll('.chem-pane').forEach((pane) => {
-    pane.classList.remove('ativa');
-  });
+/**
+ * Alterna abas internas da seção de Biologia.
+ * @param {string} paneId - ID da aba interna
+ * @param {HTMLElement} btn - Botão da aba
+ */
+function mostrarAbaBiologia(paneId, btn) {
+  mostrarAbaMateria('biologia', paneId, btn, 'bio-pane', 'bio-placeholder', 'bio-conteudo');
+}
 
-  secao.querySelectorAll('.hist-tab-card').forEach((tab) => {
-    tab.classList.remove('ativa');
-  });
+/**
+ * Alterna abas internas da seção de Matemática.
+ * @param {string} paneId - ID da aba interna
+ * @param {HTMLElement} btn - Botão da aba
+ */
+function mostrarAbaMatematica(paneId, btn) {
+  mostrarAbaMateria('matematica', paneId, btn, 'mat-pane', 'mat-placeholder', 'mat-conteudo');
+}
 
-  const destino = secao.querySelector('#' + paneId);
-  if (destino) destino.classList.add('ativa');
-  if (btn) btn.classList.add('ativa');
-
-  const placeholder = secao.querySelector('#quim-placeholder');
-  if (placeholder) placeholder.style.display = 'none';
-
-  const shell = secao.querySelector('#quim-conteudo');
-  if (shell) {
-    shell.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  }
+/**
+ * Alterna abas internas da seção de Física.
+ * @param {string} paneId - ID da aba interna
+ * @param {HTMLElement} btn - Botão da aba
+ */
+function mostrarAbaFisica(paneId, btn) {
+  mostrarAbaMateria('fisica', paneId, btn, 'fis-pane', 'fis-placeholder', 'fis-conteudo');
 }
